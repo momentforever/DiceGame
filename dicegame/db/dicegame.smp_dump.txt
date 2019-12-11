@@ -1,0 +1,40 @@
+
+State Machine - |dicegame|pianxuan:inst20|f
+Name f.0011 f.0010 f.0001 f.0000 f.0100 
+f.0000 0 0 0 0 0 
+f.0001 0 0 1 1 0 
+f.0010 0 1 0 1 0 
+f.0011 1 0 0 1 0 
+f.0100 0 0 0 1 1 
+
+State Machine - |dicegame|radom:inst2|state
+Name state.0000 state.0010 state.0001 
+state.0000 0 0 0 
+state.0001 1 0 1 
+state.0010 1 1 0 
+
+State Machine - |dicegame|rules:inst35|a
+Name a.0110 a.0101 a.0100 a.0011 a.0010 a.0001 a.0000 
+a.0000 0 0 0 0 0 0 0 
+a.0001 0 0 0 0 0 1 1 
+a.0010 0 0 0 0 1 0 1 
+a.0011 0 0 0 1 0 0 1 
+a.0100 0 0 1 0 0 0 1 
+a.0101 0 1 0 0 0 0 1 
+a.0110 1 0 0 0 0 0 1 
+
+State Machine - |dicegame|radom:inst5|state
+Name state.0000 state.0010 state.0001 
+state.0000 0 0 0 
+state.0001 1 0 1 
+state.0010 1 1 0 
+
+State Machine - |dicegame|rules:inst34|a
+Name a.0110 a.0101 a.0100 a.0011 a.0010 a.0001 a.0000 
+a.0000 0 0 0 0 0 0 0 
+a.0001 0 0 0 0 0 1 1 
+a.0010 0 0 0 0 1 0 1 
+a.0011 0 0 0 1 0 0 1 
+a.0100 0 0 1 0 0 0 1 
+a.0101 0 1 0 0 0 0 1 
+a.0110 1 0 0 0 0 0 1 

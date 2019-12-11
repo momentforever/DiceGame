@@ -1,0 +1,481 @@
+Classic Timing Analyzer report for dicegame
+Wed Dec 04 17:24:54 2019
+Quartus II Version 8.0 Build 215 05/29/2008 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'clk'
+  6. tsu
+  7. tco
+  8. th
+  9. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2008 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                             ;
++------------------------------+-------+---------------+----------------------------------+---------------------------+------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                      ; To                     ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+---------------------------+------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; -1.284 ns                        ; count                     ; keyboard:inst3|keyf    ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 15.635 ns                        ; count_turn:inst2|count[0] ; turn[0]                ; clk        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; 3.642 ns                         ; in2                       ; keyboard:inst14|num[0] ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 183.25 MHz ( period = 5.457 ns ) ; radom:inst4|num2[2]       ; rules:inst5|win1       ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                           ;                        ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+---------------------------+------------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EP2C5T144C6        ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                                              ;
++-----------------------------------------+-----------------------------------------------------+---------------------------+-------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                      ; To                      ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+---------------------------+-------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 183.25 MHz ( period = 5.457 ns )                    ; radom:inst4|num2[2]       ; rules:inst5|win1        ; clk        ; clk      ; None                        ; None                      ; 5.252 ns                ;
+; N/A                                     ; 186.12 MHz ( period = 5.373 ns )                    ; radom:inst4|save_num[2]   ; radom:inst4|save_num[3] ; clk        ; clk      ; None                        ; None                      ; 5.159 ns                ;
+; N/A                                     ; 186.88 MHz ( period = 5.351 ns )                    ; radom:inst4|num2[2]       ; rules:inst5|e[3]        ; clk        ; clk      ; None                        ; None                      ; 5.146 ns                ;
+; N/A                                     ; 186.88 MHz ( period = 5.351 ns )                    ; radom:inst4|num2[2]       ; rules:inst5|e[2]        ; clk        ; clk      ; None                        ; None                      ; 5.146 ns                ;
+; N/A                                     ; 186.88 MHz ( period = 5.351 ns )                    ; radom:inst4|num2[2]       ; rules:inst5|e[1]        ; clk        ; clk      ; None                        ; None                      ; 5.146 ns                ;
+; N/A                                     ; 186.88 MHz ( period = 5.351 ns )                    ; radom:inst4|num2[2]       ; rules:inst5|e[4]        ; clk        ; clk      ; None                        ; None                      ; 5.146 ns                ;
+; N/A                                     ; 186.88 MHz ( period = 5.351 ns )                    ; radom:inst4|num2[2]       ; rules:inst5|e[0]        ; clk        ; clk      ; None                        ; None                      ; 5.146 ns                ;
+; N/A                                     ; 188.22 MHz ( period = 5.313 ns )                    ; radom:inst4|save_num[3]   ; radom:inst4|save_num[3] ; clk        ; clk      ; None                        ; None                      ; 5.099 ns                ;
+; N/A                                     ; 193.69 MHz ( period = 5.163 ns )                    ; radom:inst4|num1[0]       ; rules:inst5|win1        ; clk        ; clk      ; None                        ; None                      ; 4.961 ns                ;
+; N/A                                     ; 195.12 MHz ( period = 5.125 ns )                    ; radom:inst4|num2[2]       ; rules:inst5|a.0110      ; clk        ; clk      ; None                        ; None                      ; 4.908 ns                ;
+; N/A                                     ; 196.77 MHz ( period = 5.082 ns )                    ; radom:inst4|num1[1]       ; rules:inst5|win1        ; clk        ; clk      ; None                        ; None                      ; 4.880 ns                ;
+; N/A                                     ; 197.75 MHz ( period = 5.057 ns )                    ; radom:inst4|num1[0]       ; rules:inst5|e[3]        ; clk        ; clk      ; None                        ; None                      ; 4.855 ns                ;
+; N/A                                     ; 197.75 MHz ( period = 5.057 ns )                    ; radom:inst4|num1[0]       ; rules:inst5|e[2]        ; clk        ; clk      ; None                        ; None                      ; 4.855 ns                ;
+; N/A                                     ; 197.75 MHz ( period = 5.057 ns )                    ; radom:inst4|num1[0]       ; rules:inst5|e[1]        ; clk        ; clk      ; None                        ; None                      ; 4.855 ns                ;
+; N/A                                     ; 197.75 MHz ( period = 5.057 ns )                    ; radom:inst4|num1[0]       ; rules:inst5|e[4]        ; clk        ; clk      ; None                        ; None                      ; 4.855 ns                ;
+; N/A                                     ; 197.75 MHz ( period = 5.057 ns )                    ; radom:inst4|num1[0]       ; rules:inst5|e[0]        ; clk        ; clk      ; None                        ; None                      ; 4.855 ns                ;
+; N/A                                     ; 199.48 MHz ( period = 5.013 ns )                    ; radom:inst4|num1[0]       ; rules:inst5|a.0110      ; clk        ; clk      ; None                        ; None                      ; 4.799 ns                ;
+; N/A                                     ; 199.80 MHz ( period = 5.005 ns )                    ; radom:inst4|save_num[2]   ; radom:inst4|save_num[1] ; clk        ; clk      ; None                        ; None                      ; 4.806 ns                ;
+; N/A                                     ; 200.96 MHz ( period = 4.976 ns )                    ; radom:inst4|num1[1]       ; rules:inst5|e[3]        ; clk        ; clk      ; None                        ; None                      ; 4.774 ns                ;
+; N/A                                     ; 200.96 MHz ( period = 4.976 ns )                    ; radom:inst4|num1[1]       ; rules:inst5|e[2]        ; clk        ; clk      ; None                        ; None                      ; 4.774 ns                ;
+; N/A                                     ; 200.96 MHz ( period = 4.976 ns )                    ; radom:inst4|num1[1]       ; rules:inst5|e[1]        ; clk        ; clk      ; None                        ; None                      ; 4.774 ns                ;
+; N/A                                     ; 200.96 MHz ( period = 4.976 ns )                    ; radom:inst4|num1[1]       ; rules:inst5|e[4]        ; clk        ; clk      ; None                        ; None                      ; 4.774 ns                ;
+; N/A                                     ; 200.96 MHz ( period = 4.976 ns )                    ; radom:inst4|num1[1]       ; rules:inst5|e[0]        ; clk        ; clk      ; None                        ; None                      ; 4.774 ns                ;
+; N/A                                     ; 201.73 MHz ( period = 4.957 ns )                    ; radom:inst4|num1[1]       ; rules:inst5|a.0110      ; clk        ; clk      ; None                        ; None                      ; 4.743 ns                ;
+; N/A                                     ; 202.22 MHz ( period = 4.945 ns )                    ; radom:inst4|save_num[3]   ; radom:inst4|save_num[1] ; clk        ; clk      ; None                        ; None                      ; 4.746 ns                ;
+; N/A                                     ; 203.67 MHz ( period = 4.910 ns )                    ; radom:inst4|num2[0]       ; rules:inst5|win1        ; clk        ; clk      ; None                        ; None                      ; 4.708 ns                ;
+; N/A                                     ; 205.85 MHz ( period = 4.858 ns )                    ; radom:inst4|num1[2]       ; rules:inst5|win1        ; clk        ; clk      ; None                        ; None                      ; 4.671 ns                ;
+; N/A                                     ; 206.36 MHz ( period = 4.846 ns )                    ; radom:inst4|num2[3]       ; rules:inst5|win1        ; clk        ; clk      ; None                        ; None                      ; 4.644 ns                ;
+; N/A                                     ; 206.91 MHz ( period = 4.833 ns )                    ; radom:inst6|num2[0]       ; rules:inst9|a.0000      ; clk        ; clk      ; None                        ; None                      ; 4.601 ns                ;
+; N/A                                     ; 207.08 MHz ( period = 4.829 ns )                    ; radom:inst4|save_num[2]   ; radom:inst4|save_num[2] ; clk        ; clk      ; None                        ; None                      ; 4.615 ns                ;
+; N/A                                     ; 207.17 MHz ( period = 4.827 ns )                    ; radom:inst4|num2[1]       ; rules:inst5|win1        ; clk        ; clk      ; None                        ; None                      ; 4.625 ns                ;
+; N/A                                     ; 207.90 MHz ( period = 4.810 ns )                    ; radom:inst6|num1[1]       ; rules:inst9|a.0000      ; clk        ; clk      ; None                        ; None                      ; 4.578 ns                ;
+; N/A                                     ; 208.16 MHz ( period = 4.804 ns )                    ; radom:inst4|num2[0]       ; rules:inst5|e[3]        ; clk        ; clk      ; None                        ; None                      ; 4.602 ns                ;
+; N/A                                     ; 208.16 MHz ( period = 4.804 ns )                    ; radom:inst4|num2[0]       ; rules:inst5|e[2]        ; clk        ; clk      ; None                        ; None                      ; 4.602 ns                ;
+; N/A                                     ; 208.16 MHz ( period = 4.804 ns )                    ; radom:inst4|num2[0]       ; rules:inst5|e[1]        ; clk        ; clk      ; None                        ; None                      ; 4.602 ns                ;
+; N/A                                     ; 208.16 MHz ( period = 4.804 ns )                    ; radom:inst4|num2[0]       ; rules:inst5|e[4]        ; clk        ; clk      ; None                        ; None                      ; 4.602 ns                ;
+; N/A                                     ; 208.16 MHz ( period = 4.804 ns )                    ; radom:inst4|num2[0]       ; rules:inst5|e[0]        ; clk        ; clk      ; None                        ; None                      ; 4.602 ns                ;
+; N/A                                     ; 208.90 MHz ( period = 4.787 ns )                    ; radom:inst4|num1[3]       ; rules:inst5|win1        ; clk        ; clk      ; None                        ; None                      ; 4.600 ns                ;
+; N/A                                     ; 209.69 MHz ( period = 4.769 ns )                    ; radom:inst4|save_num[3]   ; radom:inst4|save_num[2] ; clk        ; clk      ; None                        ; None                      ; 4.555 ns                ;
+; N/A                                     ; 210.00 MHz ( period = 4.762 ns )                    ; radom:inst6|num2[1]       ; rules:inst9|a.0000      ; clk        ; clk      ; None                        ; None                      ; 4.530 ns                ;
+; N/A                                     ; 210.08 MHz ( period = 4.760 ns )                    ; radom:inst4|num2[0]       ; rules:inst5|a.0110      ; clk        ; clk      ; None                        ; None                      ; 4.546 ns                ;
+; N/A                                     ; 210.44 MHz ( period = 4.752 ns )                    ; radom:inst4|num1[2]       ; rules:inst5|e[3]        ; clk        ; clk      ; None                        ; None                      ; 4.565 ns                ;
+; N/A                                     ; 210.44 MHz ( period = 4.752 ns )                    ; radom:inst4|num1[2]       ; rules:inst5|e[2]        ; clk        ; clk      ; None                        ; None                      ; 4.565 ns                ;
+; N/A                                     ; 210.44 MHz ( period = 4.752 ns )                    ; radom:inst4|num1[2]       ; rules:inst5|e[1]        ; clk        ; clk      ; None                        ; None                      ; 4.565 ns                ;
+; N/A                                     ; 210.44 MHz ( period = 4.752 ns )                    ; radom:inst4|num1[2]       ; rules:inst5|e[4]        ; clk        ; clk      ; None                        ; None                      ; 4.565 ns                ;
+; N/A                                     ; 210.44 MHz ( period = 4.752 ns )                    ; radom:inst4|num1[2]       ; rules:inst5|e[0]        ; clk        ; clk      ; None                        ; None                      ; 4.565 ns                ;
+; N/A                                     ; 210.79 MHz ( period = 4.744 ns )                    ; radom:inst4|num2[2]       ; rules:inst5|a.0000      ; clk        ; clk      ; None                        ; None                      ; 4.539 ns                ;
+; N/A                                     ; 210.97 MHz ( period = 4.740 ns )                    ; radom:inst4|num2[3]       ; rules:inst5|e[3]        ; clk        ; clk      ; None                        ; None                      ; 4.538 ns                ;
+; N/A                                     ; 210.97 MHz ( period = 4.740 ns )                    ; radom:inst4|num2[3]       ; rules:inst5|e[2]        ; clk        ; clk      ; None                        ; None                      ; 4.538 ns                ;
+; N/A                                     ; 210.97 MHz ( period = 4.740 ns )                    ; radom:inst4|num2[3]       ; rules:inst5|e[1]        ; clk        ; clk      ; None                        ; None                      ; 4.538 ns                ;
+; N/A                                     ; 210.97 MHz ( period = 4.740 ns )                    ; radom:inst4|num2[3]       ; rules:inst5|e[4]        ; clk        ; clk      ; None                        ; None                      ; 4.538 ns                ;
+; N/A                                     ; 210.97 MHz ( period = 4.740 ns )                    ; radom:inst4|num2[3]       ; rules:inst5|e[0]        ; clk        ; clk      ; None                        ; None                      ; 4.538 ns                ;
+; N/A                                     ; 211.19 MHz ( period = 4.735 ns )                    ; radom:inst4|num2[2]       ; rules:inst5|a.0011      ; clk        ; clk      ; None                        ; None                      ; 4.530 ns                ;
+; N/A                                     ; 211.37 MHz ( period = 4.731 ns )                    ; radom:inst4|num2[2]       ; rules:inst5|win2        ; clk        ; clk      ; None                        ; None                      ; 4.526 ns                ;
+; N/A                                     ; 211.60 MHz ( period = 4.726 ns )                    ; radom:inst6|num2[0]       ; rules:inst9|e[2]        ; clk        ; clk      ; None                        ; None                      ; 4.494 ns                ;
+; N/A                                     ; 211.82 MHz ( period = 4.721 ns )                    ; radom:inst4|num2[1]       ; rules:inst5|e[3]        ; clk        ; clk      ; None                        ; None                      ; 4.519 ns                ;
+; N/A                                     ; 211.82 MHz ( period = 4.721 ns )                    ; radom:inst4|num2[1]       ; rules:inst5|e[2]        ; clk        ; clk      ; None                        ; None                      ; 4.519 ns                ;
+; N/A                                     ; 211.82 MHz ( period = 4.721 ns )                    ; radom:inst4|num2[1]       ; rules:inst5|e[1]        ; clk        ; clk      ; None                        ; None                      ; 4.519 ns                ;
+; N/A                                     ; 211.82 MHz ( period = 4.721 ns )                    ; radom:inst4|num2[1]       ; rules:inst5|e[4]        ; clk        ; clk      ; None                        ; None                      ; 4.519 ns                ;
+; N/A                                     ; 211.82 MHz ( period = 4.721 ns )                    ; radom:inst4|num2[1]       ; rules:inst5|e[0]        ; clk        ; clk      ; None                        ; None                      ; 4.519 ns                ;
+; N/A                                     ; 212.63 MHz ( period = 4.703 ns )                    ; radom:inst6|num1[1]       ; rules:inst9|e[2]        ; clk        ; clk      ; None                        ; None                      ; 4.471 ns                ;
+; N/A                                     ; 212.68 MHz ( period = 4.702 ns )                    ; radom:inst4|num2[1]       ; rules:inst5|a.0110      ; clk        ; clk      ; None                        ; None                      ; 4.488 ns                ;
+; N/A                                     ; 213.63 MHz ( period = 4.681 ns )                    ; radom:inst4|num1[3]       ; rules:inst5|e[3]        ; clk        ; clk      ; None                        ; None                      ; 4.494 ns                ;
+; N/A                                     ; 213.63 MHz ( period = 4.681 ns )                    ; radom:inst4|num1[3]       ; rules:inst5|e[2]        ; clk        ; clk      ; None                        ; None                      ; 4.494 ns                ;
+; N/A                                     ; 213.63 MHz ( period = 4.681 ns )                    ; radom:inst4|num1[3]       ; rules:inst5|e[1]        ; clk        ; clk      ; None                        ; None                      ; 4.494 ns                ;
+; N/A                                     ; 213.63 MHz ( period = 4.681 ns )                    ; radom:inst4|num1[3]       ; rules:inst5|e[4]        ; clk        ; clk      ; None                        ; None                      ; 4.494 ns                ;
+; N/A                                     ; 213.63 MHz ( period = 4.681 ns )                    ; radom:inst4|num1[3]       ; rules:inst5|e[0]        ; clk        ; clk      ; None                        ; None                      ; 4.494 ns                ;
+; N/A                                     ; 214.64 MHz ( period = 4.659 ns )                    ; radom:inst6|num1[0]       ; rules:inst9|a.0000      ; clk        ; clk      ; None                        ; None                      ; 4.427 ns                ;
+; N/A                                     ; 214.82 MHz ( period = 4.655 ns )                    ; radom:inst6|num2[1]       ; rules:inst9|e[2]        ; clk        ; clk      ; None                        ; None                      ; 4.423 ns                ;
+; N/A                                     ; 216.50 MHz ( period = 4.619 ns )                    ; radom:inst4|num1[0]       ; rules:inst5|win2        ; clk        ; clk      ; None                        ; None                      ; 4.417 ns                ;
+; N/A                                     ; 216.83 MHz ( period = 4.612 ns )                    ; radom:inst4|num2[2]       ; rules:inst5|a.0001      ; clk        ; clk      ; None                        ; None                      ; 4.408 ns                ;
+; N/A                                     ; 217.72 MHz ( period = 4.593 ns )                    ; radom:inst4|num2[2]       ; rules:inst5|a.0100      ; clk        ; clk      ; None                        ; None                      ; 4.389 ns                ;
+; N/A                                     ; 219.15 MHz ( period = 4.563 ns )                    ; radom:inst4|num1[1]       ; rules:inst5|win2        ; clk        ; clk      ; None                        ; None                      ; 4.361 ns                ;
+; N/A                                     ; 219.44 MHz ( period = 4.557 ns )                    ; radom:inst6|num2[0]       ; rules:inst9|win2        ; clk        ; clk      ; None                        ; None                      ; 4.325 ns                ;
+; N/A                                     ; 219.68 MHz ( period = 4.552 ns )                    ; radom:inst6|num1[0]       ; rules:inst9|e[2]        ; clk        ; clk      ; None                        ; None                      ; 4.320 ns                ;
+; N/A                                     ; 220.26 MHz ( period = 4.540 ns )                    ; radom:inst6|num2[2]       ; rules:inst9|a.0000      ; clk        ; clk      ; None                        ; None                      ; 4.308 ns                ;
+; N/A                                     ; 220.56 MHz ( period = 4.534 ns )                    ; radom:inst6|num1[1]       ; rules:inst9|win2        ; clk        ; clk      ; None                        ; None                      ; 4.302 ns                ;
+; N/A                                     ; 220.60 MHz ( period = 4.533 ns )                    ; radom:inst6|num2[0]       ; rules:inst9|win1        ; clk        ; clk      ; None                        ; None                      ; 4.301 ns                ;
+; N/A                                     ; 220.85 MHz ( period = 4.528 ns )                    ; radom:inst6|num1[2]       ; rules:inst9|a.0000      ; clk        ; clk      ; None                        ; None                      ; 4.296 ns                ;
+; N/A                                     ; 220.95 MHz ( period = 4.526 ns )                    ; radom:inst4|num1[2]       ; rules:inst5|a.0110      ; clk        ; clk      ; None                        ; None                      ; 4.327 ns                ;
+; N/A                                     ; 221.04 MHz ( period = 4.524 ns )                    ; radom:inst6|num2[0]       ; rules:inst9|a.0110      ; clk        ; clk      ; None                        ; None                      ; 4.292 ns                ;
+; N/A                                     ; 221.29 MHz ( period = 4.519 ns )                    ; radom:inst6|num2[2]       ; rules:inst9|e[2]        ; clk        ; clk      ; None                        ; None                      ; 4.287 ns                ;
+; N/A                                     ; 221.53 MHz ( period = 4.514 ns )                    ; radom:inst4|num2[3]       ; rules:inst5|a.0110      ; clk        ; clk      ; None                        ; None                      ; 4.300 ns                ;
+; N/A                                     ; 221.73 MHz ( period = 4.510 ns )                    ; radom:inst6|num1[1]       ; rules:inst9|win1        ; clk        ; clk      ; None                        ; None                      ; 4.278 ns                ;
+; N/A                                     ; 221.88 MHz ( period = 4.507 ns )                    ; radom:inst6|num1[2]       ; rules:inst9|e[2]        ; clk        ; clk      ; None                        ; None                      ; 4.275 ns                ;
+; N/A                                     ; 222.17 MHz ( period = 4.501 ns )                    ; radom:inst6|num1[1]       ; rules:inst9|a.0110      ; clk        ; clk      ; None                        ; None                      ; 4.269 ns                ;
+; N/A                                     ; 222.77 MHz ( period = 4.489 ns )                    ; radom:inst6|num2[3]       ; rules:inst9|a.0000      ; clk        ; clk      ; None                        ; None                      ; 4.257 ns                ;
+; N/A                                     ; 222.92 MHz ( period = 4.486 ns )                    ; radom:inst6|num2[1]       ; rules:inst9|win2        ; clk        ; clk      ; None                        ; None                      ; 4.254 ns                ;
+; N/A                                     ; 223.71 MHz ( period = 4.470 ns )                    ; radom:inst4|num2[2]       ; rules:inst5|a.0101      ; clk        ; clk      ; None                        ; None                      ; 4.266 ns                ;
+; N/A                                     ; 223.81 MHz ( period = 4.468 ns )                    ; radom:inst4|num2[2]       ; rules:inst5|a.0010      ; clk        ; clk      ; None                        ; None                      ; 4.264 ns                ;
+; N/A                                     ; 223.81 MHz ( period = 4.468 ns )                    ; radom:inst6|num2[0]       ; rules:inst9|e[3]        ; clk        ; clk      ; None                        ; None                      ; 4.241 ns                ;
+; N/A                                     ; 223.81 MHz ( period = 4.468 ns )                    ; radom:inst6|num2[0]       ; rules:inst9|e[1]        ; clk        ; clk      ; None                        ; None                      ; 4.241 ns                ;
+; N/A                                     ; 223.81 MHz ( period = 4.468 ns )                    ; radom:inst6|num2[0]       ; rules:inst9|e[4]        ; clk        ; clk      ; None                        ; None                      ; 4.241 ns                ;
+; N/A                                     ; 223.81 MHz ( period = 4.468 ns )                    ; radom:inst6|num2[0]       ; rules:inst9|e[0]        ; clk        ; clk      ; None                        ; None                      ; 4.241 ns                ;
+; N/A                                     ; 224.11 MHz ( period = 4.462 ns )                    ; radom:inst6|num2[1]       ; rules:inst9|win1        ; clk        ; clk      ; None                        ; None                      ; 4.230 ns                ;
+; N/A                                     ; 224.47 MHz ( period = 4.455 ns )                    ; radom:inst4|num1[3]       ; rules:inst5|a.0110      ; clk        ; clk      ; None                        ; None                      ; 4.256 ns                ;
+; N/A                                     ; 224.57 MHz ( period = 4.453 ns )                    ; radom:inst6|num2[1]       ; rules:inst9|a.0110      ; clk        ; clk      ; None                        ; None                      ; 4.221 ns                ;
+; N/A                                     ; 224.72 MHz ( period = 4.450 ns )                    ; radom:inst4|num1[0]       ; rules:inst5|a.0000      ; clk        ; clk      ; None                        ; None                      ; 4.248 ns                ;
+; N/A                                     ; 224.77 MHz ( period = 4.449 ns )                    ; radom:inst6|num1[3]       ; rules:inst9|a.0000      ; clk        ; clk      ; None                        ; None                      ; 4.217 ns                ;
+; N/A                                     ; 224.97 MHz ( period = 4.445 ns )                    ; div100:inst23|count[2]    ; div100:inst23|clockout  ; clk        ; clk      ; None                        ; None                      ; 2.094 ns                ;
+; N/A                                     ; 224.97 MHz ( period = 4.445 ns )                    ; radom:inst6|num1[1]       ; rules:inst9|e[3]        ; clk        ; clk      ; None                        ; None                      ; 4.218 ns                ;
+; N/A                                     ; 224.97 MHz ( period = 4.445 ns )                    ; radom:inst6|num1[1]       ; rules:inst9|e[1]        ; clk        ; clk      ; None                        ; None                      ; 4.218 ns                ;
+; N/A                                     ; 224.97 MHz ( period = 4.445 ns )                    ; radom:inst6|num1[1]       ; rules:inst9|e[4]        ; clk        ; clk      ; None                        ; None                      ; 4.218 ns                ;
+; N/A                                     ; 224.97 MHz ( period = 4.445 ns )                    ; radom:inst6|num1[1]       ; rules:inst9|e[0]        ; clk        ; clk      ; None                        ; None                      ; 4.218 ns                ;
+; N/A                                     ; 225.17 MHz ( period = 4.441 ns )                    ; radom:inst4|num1[0]       ; rules:inst5|a.0011      ; clk        ; clk      ; None                        ; None                      ; 4.239 ns                ;
+; N/A                                     ; 227.43 MHz ( period = 4.397 ns )                    ; radom:inst6|num2[1]       ; rules:inst9|e[3]        ; clk        ; clk      ; None                        ; None                      ; 4.170 ns                ;
+; N/A                                     ; 227.43 MHz ( period = 4.397 ns )                    ; radom:inst6|num2[1]       ; rules:inst9|e[1]        ; clk        ; clk      ; None                        ; None                      ; 4.170 ns                ;
+; N/A                                     ; 227.43 MHz ( period = 4.397 ns )                    ; radom:inst6|num2[1]       ; rules:inst9|e[4]        ; clk        ; clk      ; None                        ; None                      ; 4.170 ns                ;
+; N/A                                     ; 227.43 MHz ( period = 4.397 ns )                    ; radom:inst6|num2[1]       ; rules:inst9|e[0]        ; clk        ; clk      ; None                        ; None                      ; 4.170 ns                ;
+; N/A                                     ; 227.89 MHz ( period = 4.388 ns )                    ; radom:inst4|num1[1]       ; rules:inst5|a.0000      ; clk        ; clk      ; None                        ; None                      ; 4.186 ns                ;
+; N/A                                     ; 228.15 MHz ( period = 4.383 ns )                    ; radom:inst6|num1[0]       ; rules:inst9|win2        ; clk        ; clk      ; None                        ; None                      ; 4.151 ns                ;
+; N/A                                     ; 228.36 MHz ( period = 4.379 ns )                    ; div100:inst23|count[10]   ; div100:inst23|clockout  ; clk        ; clk      ; None                        ; None                      ; 2.028 ns                ;
+; N/A                                     ; 228.62 MHz ( period = 4.374 ns )                    ; count_turn:inst2|count[0] ; rules:inst5|a.0001      ; clk        ; clk      ; None                        ; None                      ; 1.569 ns                ;
+; N/A                                     ; 228.68 MHz ( period = 4.373 ns )                    ; count_turn:inst2|count[0] ; rules:inst9|a.0001      ; clk        ; clk      ; None                        ; None                      ; 1.568 ns                ;
+; N/A                                     ; 229.04 MHz ( period = 4.366 ns )                    ; radom:inst4|num2[0]       ; rules:inst5|win2        ; clk        ; clk      ; None                        ; None                      ; 4.164 ns                ;
+; N/A                                     ; 229.36 MHz ( period = 4.360 ns )                    ; radom:inst4|num1[1]       ; rules:inst5|a.0011      ; clk        ; clk      ; None                        ; None                      ; 4.158 ns                ;
+; N/A                                     ; 229.41 MHz ( period = 4.359 ns )                    ; div100:inst23|count[6]    ; div100:inst23|clockout  ; clk        ; clk      ; None                        ; None                      ; 2.008 ns                ;
+; N/A                                     ; 229.41 MHz ( period = 4.359 ns )                    ; radom:inst6|num1[0]       ; rules:inst9|win1        ; clk        ; clk      ; None                        ; None                      ; 4.127 ns                ;
+; N/A                                     ; 229.89 MHz ( period = 4.350 ns )                    ; radom:inst6|num1[0]       ; rules:inst9|a.0110      ; clk        ; clk      ; None                        ; None                      ; 4.118 ns                ;
+; N/A                                     ; 231.96 MHz ( period = 4.311 ns )                    ; div100:inst23|count[0]    ; div100:inst23|clockout  ; clk        ; clk      ; None                        ; None                      ; 1.960 ns                ;
+; N/A                                     ; 232.13 MHz ( period = 4.308 ns )                    ; radom:inst4|num2[1]       ; rules:inst5|win2        ; clk        ; clk      ; None                        ; None                      ; 4.106 ns                ;
+; N/A                                     ; 232.23 MHz ( period = 4.306 ns )                    ; radom:inst4|num1[0]       ; rules:inst5|a.0001      ; clk        ; clk      ; None                        ; None                      ; 4.105 ns                ;
+; N/A                                     ; 232.61 MHz ( period = 4.299 ns )                    ; radom:inst6|num2[0]       ; rules:inst9|a.0001      ; clk        ; clk      ; None                        ; None                      ; 4.082 ns                ;
+; N/A                                     ; 232.88 MHz ( period = 4.294 ns )                    ; radom:inst6|num1[0]       ; rules:inst9|e[3]        ; clk        ; clk      ; None                        ; None                      ; 4.067 ns                ;
+; N/A                                     ; 232.88 MHz ( period = 4.294 ns )                    ; radom:inst6|num1[0]       ; rules:inst9|e[1]        ; clk        ; clk      ; None                        ; None                      ; 4.067 ns                ;
+; N/A                                     ; 232.88 MHz ( period = 4.294 ns )                    ; radom:inst6|num1[0]       ; rules:inst9|e[4]        ; clk        ; clk      ; None                        ; None                      ; 4.067 ns                ;
+; N/A                                     ; 232.88 MHz ( period = 4.294 ns )                    ; radom:inst6|num1[0]       ; rules:inst9|e[0]        ; clk        ; clk      ; None                        ; None                      ; 4.067 ns                ;
+; N/A                                     ; 233.26 MHz ( period = 4.287 ns )                    ; radom:inst4|num1[0]       ; rules:inst5|a.0100      ; clk        ; clk      ; None                        ; None                      ; 4.086 ns                ;
+; N/A                                     ; 233.43 MHz ( period = 4.284 ns )                    ; div100:inst23|count[8]    ; div100:inst23|clockout  ; clk        ; clk      ; None                        ; None                      ; 1.933 ns                ;
+; N/A                                     ; 233.75 MHz ( period = 4.278 ns )                    ; radom:inst6|num2[0]       ; rules:inst9|a.0100      ; clk        ; clk      ; None                        ; None                      ; 4.061 ns                ;
+; N/A                                     ; 234.52 MHz ( period = 4.264 ns )                    ; radom:inst6|num2[2]       ; rules:inst9|win2        ; clk        ; clk      ; None                        ; None                      ; 4.032 ns                ;
+; N/A                                     ; 234.63 MHz ( period = 4.262 ns )                    ; radom:inst6|num1[1]       ; rules:inst9|a.0001      ; clk        ; clk      ; None                        ; None                      ; 4.045 ns                ;
+; N/A                                     ; 234.69 MHz ( period = 4.261 ns )                    ; radom:inst6|num2[2]       ; rules:inst9|e[3]        ; clk        ; clk      ; None                        ; None                      ; 4.034 ns                ;
+; N/A                                     ; 234.69 MHz ( period = 4.261 ns )                    ; radom:inst6|num2[2]       ; rules:inst9|e[1]        ; clk        ; clk      ; None                        ; None                      ; 4.034 ns                ;
+; N/A                                     ; 234.69 MHz ( period = 4.261 ns )                    ; radom:inst6|num2[2]       ; rules:inst9|e[4]        ; clk        ; clk      ; None                        ; None                      ; 4.034 ns                ;
+; N/A                                     ; 234.69 MHz ( period = 4.261 ns )                    ; radom:inst6|num2[2]       ; rules:inst9|e[0]        ; clk        ; clk      ; None                        ; None                      ; 4.034 ns                ;
+; N/A                                     ; 235.18 MHz ( period = 4.252 ns )                    ; radom:inst6|num1[2]       ; rules:inst9|win2        ; clk        ; clk      ; None                        ; None                      ; 4.020 ns                ;
+; N/A                                     ; 235.35 MHz ( period = 4.249 ns )                    ; radom:inst6|num1[2]       ; rules:inst9|e[3]        ; clk        ; clk      ; None                        ; None                      ; 4.022 ns                ;
+; N/A                                     ; 235.35 MHz ( period = 4.249 ns )                    ; radom:inst6|num1[2]       ; rules:inst9|e[1]        ; clk        ; clk      ; None                        ; None                      ; 4.022 ns                ;
+; N/A                                     ; 235.35 MHz ( period = 4.249 ns )                    ; radom:inst6|num1[2]       ; rules:inst9|e[4]        ; clk        ; clk      ; None                        ; None                      ; 4.022 ns                ;
+; N/A                                     ; 235.35 MHz ( period = 4.249 ns )                    ; radom:inst6|num1[2]       ; rules:inst9|e[0]        ; clk        ; clk      ; None                        ; None                      ; 4.022 ns                ;
+; N/A                                     ; 235.46 MHz ( period = 4.247 ns )                    ; div100:inst23|count[11]   ; div100:inst23|clockout  ; clk        ; clk      ; None                        ; None                      ; 1.896 ns                ;
+; N/A                                     ; 235.52 MHz ( period = 4.246 ns )                    ; div100:inst23|count[14]   ; div100:inst23|clockout  ; clk        ; clk      ; None                        ; None                      ; 1.895 ns                ;
+; N/A                                     ; 235.68 MHz ( period = 4.243 ns )                    ; radom:inst6|num2[2]       ; rules:inst9|win1        ; clk        ; clk      ; None                        ; None                      ; 4.011 ns                ;
+; N/A                                     ; 235.79 MHz ( period = 4.241 ns )                    ; radom:inst6|num1[1]       ; rules:inst9|a.0100      ; clk        ; clk      ; None                        ; None                      ; 4.024 ns                ;
+; N/A                                     ; 235.79 MHz ( period = 4.241 ns )                    ; radom:inst6|num2[2]       ; rules:inst9|a.0110      ; clk        ; clk      ; None                        ; None                      ; 4.009 ns                ;
+; N/A                                     ; 236.02 MHz ( period = 4.237 ns )                    ; radom:inst4|num1[1]       ; rules:inst5|a.0001      ; clk        ; clk      ; None                        ; None                      ; 4.036 ns                ;
+; N/A                                     ; 236.24 MHz ( period = 4.233 ns )                    ; div100:inst23|count[7]    ; div100:inst23|clockout  ; clk        ; clk      ; None                        ; None                      ; 1.882 ns                ;
+; N/A                                     ; 236.35 MHz ( period = 4.231 ns )                    ; radom:inst6|num2[3]       ; rules:inst9|e[2]        ; clk        ; clk      ; None                        ; None                      ; 3.999 ns                ;
+; N/A                                     ; 236.35 MHz ( period = 4.231 ns )                    ; radom:inst6|num1[2]       ; rules:inst9|win1        ; clk        ; clk      ; None                        ; None                      ; 3.999 ns                ;
+; N/A                                     ; 236.46 MHz ( period = 4.229 ns )                    ; radom:inst6|num1[2]       ; rules:inst9|a.0110      ; clk        ; clk      ; None                        ; None                      ; 3.997 ns                ;
+; N/A                                     ; 236.74 MHz ( period = 4.224 ns )                    ; div100:inst23|count[5]    ; div100:inst23|clockout  ; clk        ; clk      ; None                        ; None                      ; 1.875 ns                ;
+; N/A                                     ; 236.80 MHz ( period = 4.223 ns )                    ; count_turn:inst2|count[1] ; rules:inst5|a.0001      ; clk        ; clk      ; None                        ; None                      ; 1.418 ns                ;
+; N/A                                     ; 236.85 MHz ( period = 4.222 ns )                    ; count_turn:inst2|count[1] ; rules:inst9|a.0001      ; clk        ; clk      ; None                        ; None                      ; 1.417 ns                ;
+; N/A                                     ; 237.08 MHz ( period = 4.218 ns )                    ; radom:inst4|num1[1]       ; rules:inst5|a.0100      ; clk        ; clk      ; None                        ; None                      ; 4.017 ns                ;
+; N/A                                     ; 237.30 MHz ( period = 4.214 ns )                    ; radom:inst6|num2[1]       ; rules:inst9|a.0001      ; clk        ; clk      ; None                        ; None                      ; 3.997 ns                ;
+; N/A                                     ; 237.36 MHz ( period = 4.213 ns )                    ; radom:inst6|num2[3]       ; rules:inst9|win2        ; clk        ; clk      ; None                        ; None                      ; 3.981 ns                ;
+; N/A                                     ; 237.59 MHz ( period = 4.209 ns )                    ; div100:inst23|count[1]    ; div100:inst23|clockout  ; clk        ; clk      ; None                        ; None                      ; 1.860 ns                ;
+; N/A                                     ; 238.27 MHz ( period = 4.197 ns )                    ; radom:inst4|num2[0]       ; rules:inst5|a.0000      ; clk        ; clk      ; None                        ; None                      ; 3.995 ns                ;
+; N/A                                     ; 238.49 MHz ( period = 4.193 ns )                    ; radom:inst6|num2[1]       ; rules:inst9|a.0100      ; clk        ; clk      ; None                        ; None                      ; 3.976 ns                ;
+; N/A                                     ; 238.61 MHz ( period = 4.191 ns )                    ; radom:inst6|num1[3]       ; rules:inst9|e[2]        ; clk        ; clk      ; None                        ; None                      ; 3.959 ns                ;
+; N/A                                     ; 238.72 MHz ( period = 4.189 ns )                    ; radom:inst6|num2[3]       ; rules:inst9|win1        ; clk        ; clk      ; None                        ; None                      ; 3.957 ns                ;
+; N/A                                     ; 238.78 MHz ( period = 4.188 ns )                    ; radom:inst4|num2[0]       ; rules:inst5|a.0011      ; clk        ; clk      ; None                        ; None                      ; 3.986 ns                ;
+; N/A                                     ; 239.18 MHz ( period = 4.181 ns )                    ; radom:inst6|num2[2]       ; rules:inst9|a.0001      ; clk        ; clk      ; None                        ; None                      ; 3.964 ns                ;
+; N/A                                     ; 239.23 MHz ( period = 4.180 ns )                    ; radom:inst6|num2[3]       ; rules:inst9|a.0110      ; clk        ; clk      ; None                        ; None                      ; 3.948 ns                ;
+; N/A                                     ; 239.35 MHz ( period = 4.178 ns )                    ; div100:inst23|count[3]    ; div100:inst23|clockout  ; clk        ; clk      ; None                        ; None                      ; 1.827 ns                ;
+; N/A                                     ; 239.64 MHz ( period = 4.173 ns )                    ; radom:inst6|num1[3]       ; rules:inst9|win2        ; clk        ; clk      ; None                        ; None                      ; 3.941 ns                ;
+; N/A                                     ; 239.87 MHz ( period = 4.169 ns )                    ; radom:inst6|num1[2]       ; rules:inst9|a.0001      ; clk        ; clk      ; None                        ; None                      ; 3.952 ns                ;
+; N/A                                     ; 240.04 MHz ( period = 4.166 ns )                    ; count_turn:inst2|count[0] ; rules:inst9|a.0011      ; clk        ; clk      ; None                        ; None                      ; 1.346 ns                ;
+; N/A                                     ; 240.15 MHz ( period = 4.164 ns )                    ; radom:inst4|num1[0]       ; rules:inst5|a.0101      ; clk        ; clk      ; None                        ; None                      ; 3.963 ns                ;
+; N/A                                     ; 240.15 MHz ( period = 4.164 ns )                    ; radom:inst6|num2[0]       ; rules:inst9|a.0011      ; clk        ; clk      ; None                        ; None                      ; 3.932 ns                ;
+; N/A                                     ; 240.27 MHz ( period = 4.162 ns )                    ; radom:inst4|num1[0]       ; rules:inst5|a.0010      ; clk        ; clk      ; None                        ; None                      ; 3.961 ns                ;
+; N/A                                     ; 240.38 MHz ( period = 4.160 ns )                    ; radom:inst6|num2[2]       ; rules:inst9|a.0100      ; clk        ; clk      ; None                        ; None                      ; 3.943 ns                ;
+; N/A                                     ; 240.85 MHz ( period = 4.152 ns )                    ; count_turn:inst2|count[0] ; rules:inst5|a.0011      ; clk        ; clk      ; None                        ; None                      ; 1.346 ns                ;
+; N/A                                     ; 241.02 MHz ( period = 4.149 ns )                    ; div100:inst23|count[13]   ; div100:inst23|clockout  ; clk        ; clk      ; None                        ; None                      ; 1.798 ns                ;
+; N/A                                     ; 241.02 MHz ( period = 4.149 ns )                    ; count_turn:inst2|count[0] ; rules:inst9|a.0000      ; clk        ; clk      ; None                        ; None                      ; 1.329 ns                ;
+; N/A                                     ; 241.02 MHz ( period = 4.149 ns )                    ; radom:inst6|num1[3]       ; rules:inst9|win1        ; clk        ; clk      ; None                        ; None                      ; 3.917 ns                ;
+; N/A                                     ; 241.08 MHz ( period = 4.148 ns )                    ; radom:inst6|num1[2]       ; rules:inst9|a.0100      ; clk        ; clk      ; None                        ; None                      ; 3.931 ns                ;
+; N/A                                     ; 241.25 MHz ( period = 4.145 ns )                    ; radom:inst4|num1[2]       ; rules:inst5|a.0000      ; clk        ; clk      ; None                        ; None                      ; 3.958 ns                ;
+; N/A                                     ; 241.49 MHz ( period = 4.141 ns )                    ; radom:inst6|num1[1]       ; rules:inst9|a.0011      ; clk        ; clk      ; None                        ; None                      ; 3.909 ns                ;
+; N/A                                     ; 241.55 MHz ( period = 4.140 ns )                    ; radom:inst6|num1[3]       ; rules:inst9|a.0110      ; clk        ; clk      ; None                        ; None                      ; 3.908 ns                ;
+; N/A                                     ; 241.60 MHz ( period = 4.139 ns )                    ; rules:inst9|e[2]          ; rules:inst9|a.0000      ; clk        ; clk      ; None                        ; None                      ; 3.925 ns                ;
+; N/A                                     ; 241.66 MHz ( period = 4.138 ns )                    ; count_turn:inst2|count[0] ; rules:inst5|a.0000      ; clk        ; clk      ; None                        ; None                      ; 1.332 ns                ;
+; N/A                                     ; 241.78 MHz ( period = 4.136 ns )                    ; radom:inst4|num1[2]       ; rules:inst5|a.0011      ; clk        ; clk      ; None                        ; None                      ; 3.949 ns                ;
+; N/A                                     ; 241.95 MHz ( period = 4.133 ns )                    ; radom:inst4|num2[3]       ; rules:inst5|a.0000      ; clk        ; clk      ; None                        ; None                      ; 3.931 ns                ;
+; N/A                                     ; 241.95 MHz ( period = 4.133 ns )                    ; radom:inst4|num2[1]       ; rules:inst5|a.0000      ; clk        ; clk      ; None                        ; None                      ; 3.931 ns                ;
+; N/A                                     ; 242.01 MHz ( period = 4.132 ns )                    ; radom:inst4|num1[2]       ; rules:inst5|win2        ; clk        ; clk      ; None                        ; None                      ; 3.945 ns                ;
+; N/A                                     ; 242.42 MHz ( period = 4.125 ns )                    ; radom:inst6|num1[0]       ; rules:inst9|a.0001      ; clk        ; clk      ; None                        ; None                      ; 3.908 ns                ;
+; N/A                                     ; 242.48 MHz ( period = 4.124 ns )                    ; radom:inst4|num2[3]       ; rules:inst5|a.0011      ; clk        ; clk      ; None                        ; None                      ; 3.922 ns                ;
+; N/A                                     ; 242.72 MHz ( period = 4.120 ns )                    ; radom:inst4|num2[3]       ; rules:inst5|win2        ; clk        ; clk      ; None                        ; None                      ; 3.918 ns                ;
+; N/A                                     ; 243.61 MHz ( period = 4.105 ns )                    ; radom:inst4|num2[1]       ; rules:inst5|a.0011      ; clk        ; clk      ; None                        ; None                      ; 3.903 ns                ;
+; N/A                                     ; 243.66 MHz ( period = 4.104 ns )                    ; radom:inst6|num1[0]       ; rules:inst9|a.0100      ; clk        ; clk      ; None                        ; None                      ; 3.887 ns                ;
+; N/A                                     ; 244.20 MHz ( period = 4.095 ns )                    ; radom:inst4|num1[1]       ; rules:inst5|a.0101      ; clk        ; clk      ; None                        ; None                      ; 3.894 ns                ;
+; N/A                                     ; 244.32 MHz ( period = 4.093 ns )                    ; radom:inst4|num1[1]       ; rules:inst5|a.0010      ; clk        ; clk      ; None                        ; None                      ; 3.892 ns                ;
+; N/A                                     ; 244.32 MHz ( period = 4.093 ns )                    ; radom:inst6|num2[1]       ; rules:inst9|a.0011      ; clk        ; clk      ; None                        ; None                      ; 3.861 ns                ;
+; N/A                                     ; 244.86 MHz ( period = 4.084 ns )                    ; radom:inst6|num2[3]       ; rules:inst9|a.0001      ; clk        ; clk      ; None                        ; None                      ; 3.867 ns                ;
+; N/A                                     ; 245.46 MHz ( period = 4.074 ns )                    ; radom:inst4|num1[3]       ; rules:inst5|a.0000      ; clk        ; clk      ; None                        ; None                      ; 3.887 ns                ;
+; N/A                                     ; 245.94 MHz ( period = 4.066 ns )                    ; div100:inst23|count[15]   ; div100:inst23|clockout  ; clk        ; clk      ; None                        ; None                      ; 1.715 ns                ;
+; N/A                                     ; 246.00 MHz ( period = 4.065 ns )                    ; radom:inst4|num1[3]       ; rules:inst5|a.0011      ; clk        ; clk      ; None                        ; None                      ; 3.878 ns                ;
+; N/A                                     ; 246.12 MHz ( period = 4.063 ns )                    ; radom:inst6|num2[3]       ; rules:inst9|a.0100      ; clk        ; clk      ; None                        ; None                      ; 3.846 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                           ;                         ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+---------------------------+-------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-------------------------------------------------------------------------------+
+; tsu                                                                           ;
++-------+--------------+------------+-------+------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From  ; To                     ; To Clock ;
++-------+--------------+------------+-------+------------------------+----------+
+; N/A   ; None         ; -1.284 ns  ; count ; keyboard:inst3|keyf    ; clk      ;
+; N/A   ; None         ; -2.851 ns  ; count ; keyboard:inst3|num[1]  ; clk      ;
+; N/A   ; None         ; -2.852 ns  ; count ; keyboard:inst3|num[0]  ; clk      ;
+; N/A   ; None         ; -2.856 ns  ; count ; keyboard:inst3|num[2]  ; clk      ;
+; N/A   ; None         ; -2.913 ns  ; in1   ; keyboard:inst|num[1]   ; clk      ;
+; N/A   ; None         ; -2.918 ns  ; in2   ; keyboard:inst14|num[2] ; clk      ;
+; N/A   ; None         ; -2.922 ns  ; in2   ; keyboard:inst14|keyf   ; clk      ;
+; N/A   ; None         ; -3.144 ns  ; in1   ; keyboard:inst|keyf     ; clk      ;
+; N/A   ; None         ; -3.144 ns  ; in1   ; keyboard:inst|num[2]   ; clk      ;
+; N/A   ; None         ; -3.144 ns  ; in1   ; keyboard:inst|num[0]   ; clk      ;
+; N/A   ; None         ; -3.178 ns  ; in2   ; keyboard:inst14|num[1] ; clk      ;
+; N/A   ; None         ; -3.338 ns  ; rst   ; keyboard:inst10|keyf   ; clk      ;
+; N/A   ; None         ; -3.338 ns  ; rst   ; keyboard:inst10|num[1] ; clk      ;
+; N/A   ; None         ; -3.339 ns  ; rst   ; keyboard:inst10|num[0] ; clk      ;
+; N/A   ; None         ; -3.340 ns  ; rst   ; keyboard:inst10|num[2] ; clk      ;
+; N/A   ; None         ; -3.412 ns  ; in2   ; keyboard:inst14|num[0] ; clk      ;
++-------+--------------+------------+-------+------------------------+----------+
+
+
++----------------------------------------------------------------------------------------+
+; tco                                                                                    ;
++-------+--------------+------------+---------------------------+-----------+------------+
+; Slack ; Required tco ; Actual tco ; From                      ; To        ; From Clock ;
++-------+--------------+------------+---------------------------+-----------+------------+
+; N/A   ; None         ; 15.635 ns  ; count_turn:inst2|count[0] ; turn[0]   ; clk        ;
+; N/A   ; None         ; 15.146 ns  ; count_turn:inst2|count[1] ; turn[1]   ; clk        ;
+; N/A   ; None         ; 14.348 ns  ; rules:inst9|win2          ; player1   ; clk        ;
+; N/A   ; None         ; 14.061 ns  ; rules:inst5|win1          ; player1   ; clk        ;
+; N/A   ; None         ; 14.038 ns  ; rules:inst5|win2          ; player2   ; clk        ;
+; N/A   ; None         ; 13.239 ns  ; rules:inst9|win1          ; player2   ; clk        ;
+; N/A   ; None         ; 13.235 ns  ; radom:inst6|num1[2]       ; NUM2_1[2] ; clk        ;
+; N/A   ; None         ; 13.131 ns  ; radom:inst4|num1[3]       ; NUM1_2[3] ; clk        ;
+; N/A   ; None         ; 13.088 ns  ; radom:inst4|num1[0]       ; NUM1_2[0] ; clk        ;
+; N/A   ; None         ; 12.941 ns  ; radom:inst6|num1[2]       ; NUM2_2[2] ; clk        ;
+; N/A   ; None         ; 12.940 ns  ; radom:inst4|num1[1]       ; NUM1_2[1] ; clk        ;
+; N/A   ; None         ; 12.912 ns  ; radom:inst4|num2[3]       ; NUM1_1[3] ; clk        ;
+; N/A   ; None         ; 12.899 ns  ; radom:inst4|num2[0]       ; NUM1_1[0] ; clk        ;
+; N/A   ; None         ; 12.865 ns  ; radom:inst6|num1[0]       ; NUM2_2[0] ; clk        ;
+; N/A   ; None         ; 12.865 ns  ; radom:inst6|num1[0]       ; NUM2_1[0] ; clk        ;
+; N/A   ; None         ; 12.809 ns  ; radom:inst4|num1[2]       ; NUM1_2[2] ; clk        ;
+; N/A   ; None         ; 12.793 ns  ; radom:inst6|num1[3]       ; NUM2_1[3] ; clk        ;
+; N/A   ; None         ; 12.664 ns  ; radom:inst4|num2[1]       ; NUM1_1[1] ; clk        ;
+; N/A   ; None         ; 12.569 ns  ; radom:inst6|num1[3]       ; NUM2_2[3] ; clk        ;
+; N/A   ; None         ; 12.565 ns  ; radom:inst6|num1[1]       ; NUM2_1[1] ; clk        ;
+; N/A   ; None         ; 12.545 ns  ; radom:inst6|num1[1]       ; NUM2_2[1] ; clk        ;
+; N/A   ; None         ; 12.312 ns  ; radom:inst4|num2[2]       ; NUM1_1[2] ; clk        ;
++-------+--------------+------------+---------------------------+-----------+------------+
+
+
++-------------------------------------------------------------------------------------+
+; th                                                                                  ;
++---------------+-------------+-----------+-------+------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From  ; To                     ; To Clock ;
++---------------+-------------+-----------+-------+------------------------+----------+
+; N/A           ; None        ; 3.642 ns  ; in2   ; keyboard:inst14|num[0] ; clk      ;
+; N/A           ; None        ; 3.570 ns  ; rst   ; keyboard:inst10|num[2] ; clk      ;
+; N/A           ; None        ; 3.569 ns  ; rst   ; keyboard:inst10|num[0] ; clk      ;
+; N/A           ; None        ; 3.568 ns  ; rst   ; keyboard:inst10|keyf   ; clk      ;
+; N/A           ; None        ; 3.568 ns  ; rst   ; keyboard:inst10|num[1] ; clk      ;
+; N/A           ; None        ; 3.408 ns  ; in2   ; keyboard:inst14|num[1] ; clk      ;
+; N/A           ; None        ; 3.374 ns  ; in1   ; keyboard:inst|keyf     ; clk      ;
+; N/A           ; None        ; 3.374 ns  ; in1   ; keyboard:inst|num[2]   ; clk      ;
+; N/A           ; None        ; 3.374 ns  ; in1   ; keyboard:inst|num[0]   ; clk      ;
+; N/A           ; None        ; 3.152 ns  ; in2   ; keyboard:inst14|keyf   ; clk      ;
+; N/A           ; None        ; 3.148 ns  ; in2   ; keyboard:inst14|num[2] ; clk      ;
+; N/A           ; None        ; 3.143 ns  ; in1   ; keyboard:inst|num[1]   ; clk      ;
+; N/A           ; None        ; 3.086 ns  ; count ; keyboard:inst3|num[2]  ; clk      ;
+; N/A           ; None        ; 3.082 ns  ; count ; keyboard:inst3|num[0]  ; clk      ;
+; N/A           ; None        ; 3.081 ns  ; count ; keyboard:inst3|num[1]  ; clk      ;
+; N/A           ; None        ; 1.514 ns  ; count ; keyboard:inst3|keyf    ; clk      ;
++---------------+-------------+-----------+-------+------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 8.0 Build 215 05/29/2008 SJ Full Version
+    Info: Processing started: Wed Dec 04 17:24:54 2019
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off dicegame -c dicegame --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Warning: Found 4 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "keyboard:inst3|keyf" as buffer
+    Info: Detected ripple clock "div100:inst23|clockout" as buffer
+    Info: Detected ripple clock "div50:inst21|clockout" as buffer
+    Info: Detected ripple clock "div100:inst22|clockout" as buffer
+Info: Clock "clk" has Internal fmax of 183.25 MHz between source register "radom:inst4|num2[2]" and destination register "rules:inst5|win1" (period= 5.457 ns)
+    Info: + Longest register to register delay is 5.252 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X15_Y4_N1; Fanout = 3; REG Node = 'radom:inst4|num2[2]'
+        Info: 2: + IC(1.088 ns) + CELL(0.414 ns) = 1.502 ns; Loc. = LCCOMB_X13_Y6_N16; Fanout = 2; COMB Node = 'add:inst7|add_num[2]~50'
+        Info: 3: + IC(0.000 ns) + CELL(0.071 ns) = 1.573 ns; Loc. = LCCOMB_X13_Y6_N18; Fanout = 1; COMB Node = 'add:inst7|add_num[3]~52'
+        Info: 4: + IC(0.000 ns) + CELL(0.410 ns) = 1.983 ns; Loc. = LCCOMB_X13_Y6_N20; Fanout = 4; COMB Node = 'add:inst7|add_num[4]~53'
+        Info: 5: + IC(0.274 ns) + CELL(0.275 ns) = 2.532 ns; Loc. = LCCOMB_X13_Y6_N30; Fanout = 1; COMB Node = 'rules:inst5|always0~40'
+        Info: 6: + IC(0.244 ns) + CELL(0.420 ns) = 3.196 ns; Loc. = LCCOMB_X13_Y6_N24; Fanout = 6; COMB Node = 'rules:inst5|always0~0'
+        Info: 7: + IC(0.823 ns) + CELL(0.436 ns) = 4.455 ns; Loc. = LCCOMB_X12_Y5_N16; Fanout = 1; COMB Node = 'rules:inst5|Selector7~52'
+        Info: 8: + IC(0.275 ns) + CELL(0.438 ns) = 5.168 ns; Loc. = LCCOMB_X12_Y5_N0; Fanout = 1; COMB Node = 'rules:inst5|Selector7~53'
+        Info: 9: + IC(0.000 ns) + CELL(0.084 ns) = 5.252 ns; Loc. = LCFF_X12_Y5_N1; Fanout = 2; REG Node = 'rules:inst5|win1'
+        Info: Total cell delay = 2.548 ns ( 48.51 % )
+        Info: Total interconnect delay = 2.704 ns ( 51.49 % )
+    Info: - Smallest clock skew is 0.009 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 8.541 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.989 ns) = 0.989 ns; Loc. = PIN_17; Fanout = 2; CLK Node = 'clk'
+            Info: 2: + IC(1.080 ns) + CELL(0.787 ns) = 2.856 ns; Loc. = LCFF_X21_Y5_N1; Fanout = 3; REG Node = 'div50:inst21|clockout'
+            Info: 3: + IC(0.727 ns) + CELL(0.787 ns) = 4.370 ns; Loc. = LCFF_X24_Y6_N17; Fanout = 3; REG Node = 'div100:inst22|clockout'
+            Info: 4: + IC(2.922 ns) + CELL(0.000 ns) = 7.292 ns; Loc. = CLKCTRL_G6; Fanout = 70; COMB Node = 'div100:inst22|clockout~clkctrl'
+            Info: 5: + IC(0.712 ns) + CELL(0.537 ns) = 8.541 ns; Loc. = LCFF_X12_Y5_N1; Fanout = 2; REG Node = 'rules:inst5|win1'
+            Info: Total cell delay = 3.100 ns ( 36.30 % )
+            Info: Total interconnect delay = 5.441 ns ( 63.70 % )
+        Info: - Longest clock path from clock "clk" to source register is 8.532 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.989 ns) = 0.989 ns; Loc. = PIN_17; Fanout = 2; CLK Node = 'clk'
+            Info: 2: + IC(1.080 ns) + CELL(0.787 ns) = 2.856 ns; Loc. = LCFF_X21_Y5_N1; Fanout = 3; REG Node = 'div50:inst21|clockout'
+            Info: 3: + IC(0.727 ns) + CELL(0.787 ns) = 4.370 ns; Loc. = LCFF_X24_Y6_N17; Fanout = 3; REG Node = 'div100:inst22|clockout'
+            Info: 4: + IC(2.922 ns) + CELL(0.000 ns) = 7.292 ns; Loc. = CLKCTRL_G6; Fanout = 70; COMB Node = 'div100:inst22|clockout~clkctrl'
+            Info: 5: + IC(0.703 ns) + CELL(0.537 ns) = 8.532 ns; Loc. = LCFF_X15_Y4_N1; Fanout = 3; REG Node = 'radom:inst4|num2[2]'
+            Info: Total cell delay = 3.100 ns ( 36.33 % )
+            Info: Total interconnect delay = 5.432 ns ( 63.67 % )
+    Info: + Micro clock to output delay of source is 0.250 ns
+    Info: + Micro setup delay of destination is -0.036 ns
+Info: tsu for register "keyboard:inst3|keyf" (data pin = "count", clock pin = "clk") is -1.284 ns
+    Info: + Longest pin to register delay is 6.794 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.850 ns) = 0.850 ns; Loc. = PIN_120; Fanout = 4; PIN Node = 'count'
+        Info: 2: + IC(5.462 ns) + CELL(0.398 ns) = 6.710 ns; Loc. = LCCOMB_X15_Y6_N20; Fanout = 1; COMB Node = 'keyboard:inst3|keyf~75'
+        Info: 3: + IC(0.000 ns) + CELL(0.084 ns) = 6.794 ns; Loc. = LCFF_X15_Y6_N21; Fanout = 9; REG Node = 'keyboard:inst3|keyf'
+        Info: Total cell delay = 1.332 ns ( 19.61 % )
+        Info: Total interconnect delay = 5.462 ns ( 80.39 % )
+    Info: + Micro setup delay of destination is -0.036 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 8.042 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.989 ns) = 0.989 ns; Loc. = PIN_17; Fanout = 2; CLK Node = 'clk'
+        Info: 2: + IC(1.080 ns) + CELL(0.787 ns) = 2.856 ns; Loc. = LCFF_X21_Y5_N1; Fanout = 3; REG Node = 'div50:inst21|clockout'
+        Info: 3: + IC(0.727 ns) + CELL(0.787 ns) = 4.370 ns; Loc. = LCFF_X24_Y6_N17; Fanout = 3; REG Node = 'div100:inst22|clockout'
+        Info: 4: + IC(1.499 ns) + CELL(0.787 ns) = 6.656 ns; Loc. = LCFF_X14_Y10_N17; Fanout = 3; REG Node = 'div100:inst23|clockout'
+        Info: 5: + IC(0.849 ns) + CELL(0.537 ns) = 8.042 ns; Loc. = LCFF_X15_Y6_N21; Fanout = 9; REG Node = 'keyboard:inst3|keyf'
+        Info: Total cell delay = 3.887 ns ( 48.33 % )
+        Info: Total interconnect delay = 4.155 ns ( 51.67 % )
+Info: tco from clock "clk" to destination pin "turn[0]" through register "count_turn:inst2|count[0]" is 15.635 ns
+    Info: + Longest clock path from clock "clk" to source register is 11.133 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.989 ns) = 0.989 ns; Loc. = PIN_17; Fanout = 2; CLK Node = 'clk'
+        Info: 2: + IC(1.080 ns) + CELL(0.787 ns) = 2.856 ns; Loc. = LCFF_X21_Y5_N1; Fanout = 3; REG Node = 'div50:inst21|clockout'
+        Info: 3: + IC(0.727 ns) + CELL(0.787 ns) = 4.370 ns; Loc. = LCFF_X24_Y6_N17; Fanout = 3; REG Node = 'div100:inst22|clockout'
+        Info: 4: + IC(1.499 ns) + CELL(0.787 ns) = 6.656 ns; Loc. = LCFF_X14_Y10_N17; Fanout = 3; REG Node = 'div100:inst23|clockout'
+        Info: 5: + IC(0.849 ns) + CELL(0.787 ns) = 8.292 ns; Loc. = LCFF_X15_Y6_N21; Fanout = 9; REG Node = 'keyboard:inst3|keyf'
+        Info: 6: + IC(1.595 ns) + CELL(0.000 ns) = 9.887 ns; Loc. = CLKCTRL_G0; Fanout = 2; COMB Node = 'keyboard:inst3|keyf~clkctrl'
+        Info: 7: + IC(0.709 ns) + CELL(0.537 ns) = 11.133 ns; Loc. = LCFF_X13_Y5_N15; Fanout = 7; REG Node = 'count_turn:inst2|count[0]'
+        Info: Total cell delay = 4.674 ns ( 41.98 % )
+        Info: Total interconnect delay = 6.459 ns ( 58.02 % )
+    Info: + Micro clock to output delay of source is 0.250 ns
+    Info: + Longest register to pin delay is 4.252 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X13_Y5_N15; Fanout = 7; REG Node = 'count_turn:inst2|count[0]'
+        Info: 2: + IC(1.610 ns) + CELL(2.642 ns) = 4.252 ns; Loc. = PIN_25; Fanout = 0; PIN Node = 'turn[0]'
+        Info: Total cell delay = 2.642 ns ( 62.14 % )
+        Info: Total interconnect delay = 1.610 ns ( 37.86 % )
+Info: th for register "keyboard:inst14|num[0]" (data pin = "in2", clock pin = "clk") is 3.642 ns
+    Info: + Longest clock path from clock "clk" to destination register is 9.629 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.989 ns) = 0.989 ns; Loc. = PIN_17; Fanout = 2; CLK Node = 'clk'
+        Info: 2: + IC(1.080 ns) + CELL(0.787 ns) = 2.856 ns; Loc. = LCFF_X21_Y5_N1; Fanout = 3; REG Node = 'div50:inst21|clockout'
+        Info: 3: + IC(0.727 ns) + CELL(0.787 ns) = 4.370 ns; Loc. = LCFF_X24_Y6_N17; Fanout = 3; REG Node = 'div100:inst22|clockout'
+        Info: 4: + IC(1.499 ns) + CELL(0.787 ns) = 6.656 ns; Loc. = LCFF_X14_Y10_N17; Fanout = 3; REG Node = 'div100:inst23|clockout'
+        Info: 5: + IC(1.740 ns) + CELL(0.000 ns) = 8.396 ns; Loc. = CLKCTRL_G7; Fanout = 15; COMB Node = 'div100:inst23|clockout~clkctrl'
+        Info: 6: + IC(0.696 ns) + CELL(0.537 ns) = 9.629 ns; Loc. = LCFF_X10_Y6_N29; Fanout = 4; REG Node = 'keyboard:inst14|num[0]'
+        Info: Total cell delay = 3.887 ns ( 40.37 % )
+        Info: Total interconnect delay = 5.742 ns ( 59.63 % )
+    Info: + Micro hold delay of destination is 0.266 ns
+    Info: - Shortest pin to register delay is 6.253 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.850 ns) = 0.850 ns; Loc. = PIN_132; Fanout = 4; PIN Node = 'in2'
+        Info: 2: + IC(5.169 ns) + CELL(0.150 ns) = 6.169 ns; Loc. = LCCOMB_X10_Y6_N28; Fanout = 1; COMB Node = 'keyboard:inst14|num~262'
+        Info: 3: + IC(0.000 ns) + CELL(0.084 ns) = 6.253 ns; Loc. = LCFF_X10_Y6_N29; Fanout = 4; REG Node = 'keyboard:inst14|num[0]'
+        Info: Total cell delay = 1.084 ns ( 17.34 % )
+        Info: Total interconnect delay = 5.169 ns ( 82.66 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 195 megabytes
+    Info: Processing ended: Wed Dec 04 17:24:55 2019
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+

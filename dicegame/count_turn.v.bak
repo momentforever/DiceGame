@@ -1,0 +1,17 @@
+module count_turn(en,rst,keyf,count);
+input keyf;
+input rst;
+input en;
+output [3:0] count;
+reg [3:0] count;
+reg [3:0] save_count;
+
+
+
+always@(posedge keyf or posedge rst or posedge en)begin
+	if(rst==1)count=0;
+	else if(en ==1)count=count;
+	else count=count%2+1;
+end
+
+endmodule

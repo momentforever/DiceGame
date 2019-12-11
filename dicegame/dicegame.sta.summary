@@ -1,0 +1,173 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'div100:inst22|clockout'
+Slack : -6.421
+TNS   : -265.652
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -2.297
+TNS   : -30.086
+
+Type  : Slow 1200mV 85C Model Setup 'div50:inst21|clockout'
+Slack : -2.285
+TNS   : -29.504
+
+Type  : Slow 1200mV 85C Model Setup 'div100:inst23|clockout'
+Slack : -0.753
+TNS   : -6.321
+
+Type  : Slow 1200mV 85C Model Setup 'keyboard:inst3|keyf'
+Slack : -0.244
+TNS   : -0.244
+
+Type  : Slow 1200mV 85C Model Hold 'div100:inst22|clockout'
+Slack : -3.890
+TNS   : -43.181
+
+Type  : Slow 1200mV 85C Model Hold 'div100:inst23|clockout'
+Slack : -3.750
+TNS   : -3.750
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : -2.933
+TNS   : -2.933
+
+Type  : Slow 1200mV 85C Model Hold 'div50:inst21|clockout'
+Slack : -2.924
+TNS   : -2.924
+
+Type  : Slow 1200mV 85C Model Hold 'keyboard:inst3|keyf'
+Slack : 0.440
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'div100:inst22|clockout'
+Slack : -1.432
+TNS   : -27.737
+
+Type  : Slow 1200mV 85C Model Recovery 'keyboard:inst3|keyf'
+Slack : -1.135
+TNS   : -2.270
+
+Type  : Slow 1200mV 85C Model Removal 'div100:inst22|clockout'
+Slack : 1.183
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'keyboard:inst3|keyf'
+Slack : 1.457
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'div100:inst22|clockout'
+Slack : -5.878
+TNS   : -240.756
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -2.027
+TNS   : -25.838
+
+Type  : Slow 1200mV 0C Model Setup 'div50:inst21|clockout'
+Slack : -2.027
+TNS   : -24.902
+
+Type  : Slow 1200mV 0C Model Setup 'div100:inst23|clockout'
+Slack : -0.647
+TNS   : -4.861
+
+Type  : Slow 1200mV 0C Model Setup 'keyboard:inst3|keyf'
+Slack : -0.133
+TNS   : -0.133
+
+Type  : Slow 1200mV 0C Model Hold 'div100:inst22|clockout'
+Slack : -3.592
+TNS   : -38.608
+
+Type  : Slow 1200mV 0C Model Hold 'div100:inst23|clockout'
+Slack : -3.452
+TNS   : -3.452
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : -2.711
+TNS   : -2.711
+
+Type  : Slow 1200mV 0C Model Hold 'div50:inst21|clockout'
+Slack : -2.659
+TNS   : -2.659
+
+Type  : Slow 1200mV 0C Model Hold 'keyboard:inst3|keyf'
+Slack : 0.394
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'div100:inst22|clockout'
+Slack : -1.272
+TNS   : -23.300
+
+Type  : Slow 1200mV 0C Model Recovery 'keyboard:inst3|keyf'
+Slack : -0.942
+TNS   : -1.884
+
+Type  : Slow 1200mV 0C Model Removal 'div100:inst22|clockout'
+Slack : 1.089
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'keyboard:inst3|keyf'
+Slack : 1.300
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'div100:inst22|clockout'
+Slack : -2.110
+TNS   : -70.972
+
+Type  : Fast 1200mV 0C Model Setup 'div50:inst21|clockout'
+Slack : -0.373
+TNS   : -3.636
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -0.358
+TNS   : -3.080
+
+Type  : Fast 1200mV 0C Model Setup 'div100:inst23|clockout'
+Slack : 0.251
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'keyboard:inst3|keyf'
+Slack : 0.488
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'div100:inst22|clockout'
+Slack : -1.792
+TNS   : -21.902
+
+Type  : Fast 1200mV 0C Model Hold 'div100:inst23|clockout'
+Slack : -1.709
+TNS   : -1.709
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : -1.405
+TNS   : -1.405
+
+Type  : Fast 1200mV 0C Model Hold 'div50:inst21|clockout'
+Slack : -1.349
+TNS   : -1.349
+
+Type  : Fast 1200mV 0C Model Hold 'keyboard:inst3|keyf'
+Slack : 0.179
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'div100:inst22|clockout'
+Slack : -0.090
+TNS   : -0.102
+
+Type  : Fast 1200mV 0C Model Recovery 'keyboard:inst3|keyf'
+Slack : -0.018
+TNS   : -0.036
+
+Type  : Fast 1200mV 0C Model Removal 'div100:inst22|clockout'
+Slack : 0.486
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'keyboard:inst3|keyf'
+Slack : 0.644
+TNS   : 0.000
+
+------------------------------------------------------------

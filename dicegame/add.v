@@ -1,0 +1,13 @@
+module add(num1,num2,add_num);
+input [3:0] num1;
+input [3:0] num2;
+output [4:0] add_num;
+reg [4:0] add_num;
+
+always@(num1 or num2)begin
+	if(num1!=0&&num2!=0)
+		add_num=num1+num2;
+	else add_num=0;
+end
+
+endmodule

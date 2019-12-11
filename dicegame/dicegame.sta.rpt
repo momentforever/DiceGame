@@ -1,0 +1,1212 @@
+TimeQuest Timing Analyzer report for dicegame
+Wed Dec 11 18:10:27 2019
+Quartus II Version 8.0 Build 215 05/29/2008 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Clocks
+  4. Slow 1200mV 85C Model Fmax Summary
+  5. Slow 1200mV 85C Model Setup Summary
+  6. Slow 1200mV 85C Model Hold Summary
+  7. Slow 1200mV 85C Model Recovery Summary
+  8. Slow 1200mV 85C Model Removal Summary
+  9. Slow 1200mV 85C Model Minimum Pulse Width
+ 10. Setup Times
+ 11. Hold Times
+ 12. Clock to Output Times
+ 13. Minimum Clock to Output Times
+ 14. Slow 1200mV 0C Model Fmax Summary
+ 15. Slow 1200mV 0C Model Setup Summary
+ 16. Slow 1200mV 0C Model Hold Summary
+ 17. Slow 1200mV 0C Model Recovery Summary
+ 18. Slow 1200mV 0C Model Removal Summary
+ 19. Slow 1200mV 0C Model Minimum Pulse Width
+ 20. Setup Times
+ 21. Hold Times
+ 22. Clock to Output Times
+ 23. Minimum Clock to Output Times
+ 24. Fast 1200mV 0C Model Setup Summary
+ 25. Fast 1200mV 0C Model Hold Summary
+ 26. Fast 1200mV 0C Model Recovery Summary
+ 27. Fast 1200mV 0C Model Removal Summary
+ 28. Fast 1200mV 0C Model Minimum Pulse Width
+ 29. Setup Times
+ 30. Hold Times
+ 31. Clock to Output Times
+ 32. Minimum Clock to Output Times
+ 33. Multicorner Timing Analysis Summary
+ 34. Board Trace Model Assignments
+ 35. Slow Corner Signal Integrity Metrics
+ 36. Fast Corner Signal Integrity Metrics
+ 37. Setup Transfers
+ 38. Hold Transfers
+ 39. Recovery Transfers
+ 40. Removal Transfers
+ 41. Report TCCS
+ 42. Report RSKM
+ 43. Unconstrained Paths
+ 44. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2008 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                     ;
++--------------------+--------------------------------------------------+
+; Quartus II Version ; Version 8.0 Build 215 05/29/2008 SJ Full Version ;
+; Revision Name      ; dicegame                                         ;
+; Device Family      ; Cyclone III                                      ;
+; Device Name        ; EP3C55F484C8                                     ;
+; Timing Models      ; Final                                            ;
+; Delay Model        ; Combined                                         ;
+; Rise/Fall Delays   ; Enabled                                          ;
++--------------------+--------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                         ;
++------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------+
+; Clock Name             ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                    ;
++------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------+
+; clk                    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                    ;
+; div50:inst21|clockout  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { div50:inst21|clockout }  ;
+; div100:inst22|clockout ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { div100:inst22|clockout } ;
+; div100:inst23|clockout ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { div100:inst23|clockout } ;
+; keyboard:inst3|keyf    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { keyboard:inst3|keyf }    ;
++------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                                    ;
++------------+-----------------+------------------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name             ; Note                                                          ;
++------------+-----------------+------------------------+---------------------------------------------------------------+
+; 134.75 MHz ; 134.75 MHz      ; div100:inst22|clockout ;                                                               ;
+; 303.31 MHz ; 250.0 MHz       ; clk                    ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 304.41 MHz ; 304.41 MHz      ; div50:inst21|clockout  ;                                                               ;
+; 570.45 MHz ; 350.02 MHz      ; div100:inst23|clockout ; limit due to minimum period restriction (tmin)                ;
+; 803.86 MHz ; 350.02 MHz      ; keyboard:inst3|keyf    ; limit due to minimum period restriction (tmin)                ;
++------------+-----------------+------------------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-------------------------------------------------+
+; Slow 1200mV 85C Model Setup Summary             ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; div100:inst22|clockout ; -6.421 ; -265.652      ;
+; clk                    ; -2.297 ; -30.086       ;
+; div50:inst21|clockout  ; -2.285 ; -29.504       ;
+; div100:inst23|clockout ; -0.753 ; -6.321        ;
+; keyboard:inst3|keyf    ; -0.244 ; -0.244        ;
++------------------------+--------+---------------+
+
+
++-------------------------------------------------+
+; Slow 1200mV 85C Model Hold Summary              ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; div100:inst22|clockout ; -3.890 ; -43.181       ;
+; div100:inst23|clockout ; -3.750 ; -3.750        ;
+; clk                    ; -2.933 ; -2.933        ;
+; div50:inst21|clockout  ; -2.924 ; -2.924        ;
+; keyboard:inst3|keyf    ; 0.440  ; 0.000         ;
++------------------------+--------+---------------+
+
+
++-------------------------------------------------+
+; Slow 1200mV 85C Model Recovery Summary          ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; div100:inst22|clockout ; -1.432 ; -27.737       ;
+; keyboard:inst3|keyf    ; -1.135 ; -2.270        ;
++------------------------+--------+---------------+
+
+
++------------------------------------------------+
+; Slow 1200mV 85C Model Removal Summary          ;
++------------------------+-------+---------------+
+; Clock                  ; Slack ; End Point TNS ;
++------------------------+-------+---------------+
+; div100:inst22|clockout ; 1.183 ; 0.000         ;
+; keyboard:inst3|keyf    ; 1.457 ; 0.000         ;
++------------------------+-------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width                                                                                      ;
++--------+--------------+----------------+-------+------------+------------------------+------------+----------------------------+
+; Slack  ; Actual Width ; Required Width ; CCPP  ; Type       ; Clock                  ; Clock Edge ; Target                     ;
++--------+--------------+----------------+-------+------------+------------------------+------------+----------------------------+
+; -3.000 ; 1.000        ; 4.000          ; 0.000 ; Port Rate  ; clk                    ; Rise       ; clk                        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; keyboard:inst3|keyf    ; Rise       ; count_turn:inst16|count[0] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; keyboard:inst3|keyf    ; Rise       ; count_turn:inst16|count[1] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|clockout     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[0]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[10]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[11]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[12]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[13]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[14]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[15]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[1]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[2]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[3]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[4]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[5]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[6]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[7]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[8]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[9]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|clockout     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[0]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[10]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[11]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[12]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[13]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[14]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[15]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[1]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[2]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[3]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[4]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[5]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[6]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[7]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[8]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[9]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|clockout      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[0]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[10]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[11]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[12]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[13]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[14]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[15]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[1]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[2]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[3]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[4]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[5]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[6]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[7]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[8]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[9]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst10|keyf       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst10|num[0]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst10|num[1]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst10|num[2]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst14|keyf       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst14|num[0]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst14|num[1]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst14|num[2]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst3|keyf        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst3|num[0]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst3|num[1]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst3|num[2]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst|keyf         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst|num[0]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst|num[1]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst|num[2]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[0]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[1]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[2]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[3]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[4]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[5]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[6]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|n[0]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|n[1]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|n[2]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|n[3]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|n[4]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num1[0]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num1[1]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num1[2]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num1[3]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num2[0]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num2[1]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num2[2]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num2[3]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|save_num[0]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|save_num[1]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|save_num[2]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|save_num[3]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|state.0000     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|state.0001     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|state.0010     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst5|num1[0]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst5|num1[1]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst5|num1[2]        ;
++--------+--------------+----------------+-------+------------+------------------------+------------+----------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Setup Times                                                                              ;
++-----------+------------------------+-------+-------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise  ; Fall  ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+-------+-------+------------+------------------------+
+; count     ; div100:inst23|clockout ; 2.208 ; 2.414 ; Rise       ; div100:inst23|clockout ;
+; in1       ; div100:inst23|clockout ; 1.886 ; 2.200 ; Rise       ; div100:inst23|clockout ;
+; in2       ; div100:inst23|clockout ; 1.831 ; 2.070 ; Rise       ; div100:inst23|clockout ;
+; rst       ; div100:inst23|clockout ; 1.867 ; 2.044 ; Rise       ; div100:inst23|clockout ;
++-----------+------------------------+-------+-------+------------+------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Hold Times                                                                                 ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise   ; Fall   ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; count     ; div100:inst23|clockout ; -1.123 ; -1.421 ; Rise       ; div100:inst23|clockout ;
+; in1       ; div100:inst23|clockout ; -1.191 ; -1.505 ; Rise       ; div100:inst23|clockout ;
+; in2       ; div100:inst23|clockout ; -0.805 ; -1.092 ; Rise       ; div100:inst23|clockout ;
+; rst       ; div100:inst23|clockout ; -0.874 ; -1.081 ; Rise       ; div100:inst23|clockout ;
++-----------+------------------------+--------+--------+------------+------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                       ;
++------------+------------------------+--------+--------+------------+------------------------+
+; Data Port  ; Clock Port             ; Rise   ; Fall   ; Clock Edge ; Clock Reference        ;
++------------+------------------------+--------+--------+------------+------------------------+
+; choose[*]  ; div100:inst22|clockout ; 8.839  ; 9.031  ; Rise       ; div100:inst22|clockout ;
+;  choose[0] ; div100:inst22|clockout ; 8.508  ; 8.680  ; Rise       ; div100:inst22|clockout ;
+;  choose[1] ; div100:inst22|clockout ; 8.839  ; 9.031  ; Rise       ; div100:inst22|clockout ;
+;  choose[2] ; div100:inst22|clockout ; 8.479  ; 8.672  ; Rise       ; div100:inst22|clockout ;
+;  choose[3] ; div100:inst22|clockout ; 8.241  ; 8.107  ; Rise       ; div100:inst22|clockout ;
+;  choose[4] ; div100:inst22|clockout ; 8.281  ; 8.378  ; Rise       ; div100:inst22|clockout ;
+; led[*]     ; div100:inst22|clockout ; 9.499  ; 9.318  ; Rise       ; div100:inst22|clockout ;
+;  led[0]    ; div100:inst22|clockout ; 8.693  ; 8.507  ; Rise       ; div100:inst22|clockout ;
+;  led[1]    ; div100:inst22|clockout ; 8.282  ; 8.168  ; Rise       ; div100:inst22|clockout ;
+;  led[2]    ; div100:inst22|clockout ; 8.733  ; 8.612  ; Rise       ; div100:inst22|clockout ;
+;  led[3]    ; div100:inst22|clockout ; 9.043  ; 8.885  ; Rise       ; div100:inst22|clockout ;
+;  led[4]    ; div100:inst22|clockout ; 9.481  ; 9.318  ; Rise       ; div100:inst22|clockout ;
+;  led[5]    ; div100:inst22|clockout ; 9.117  ; 8.936  ; Rise       ; div100:inst22|clockout ;
+;  led[6]    ; div100:inst22|clockout ; 9.499  ; 9.312  ; Rise       ; div100:inst22|clockout ;
+; player1    ; div100:inst22|clockout ; 9.889  ; 10.223 ; Rise       ; div100:inst22|clockout ;
+; player2    ; div100:inst22|clockout ; 11.573 ; 11.758 ; Rise       ; div100:inst22|clockout ;
++------------+------------------------+--------+--------+------------+------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                               ;
++------------+------------------------+--------+--------+------------+------------------------+
+; Data Port  ; Clock Port             ; Rise   ; Fall   ; Clock Edge ; Clock Reference        ;
++------------+------------------------+--------+--------+------------+------------------------+
+; choose[*]  ; div100:inst22|clockout ; 7.995  ; 7.867  ; Rise       ; div100:inst22|clockout ;
+;  choose[0] ; div100:inst22|clockout ; 8.248  ; 8.415  ; Rise       ; div100:inst22|clockout ;
+;  choose[1] ; div100:inst22|clockout ; 8.565  ; 8.751  ; Rise       ; div100:inst22|clockout ;
+;  choose[2] ; div100:inst22|clockout ; 8.224  ; 8.410  ; Rise       ; div100:inst22|clockout ;
+;  choose[3] ; div100:inst22|clockout ; 7.995  ; 7.867  ; Rise       ; div100:inst22|clockout ;
+;  choose[4] ; div100:inst22|clockout ; 8.033  ; 8.128  ; Rise       ; div100:inst22|clockout ;
+; led[*]     ; div100:inst22|clockout ; 8.031  ; 7.920  ; Rise       ; div100:inst22|clockout ;
+;  led[0]    ; div100:inst22|clockout ; 8.428  ; 8.248  ; Rise       ; div100:inst22|clockout ;
+;  led[1]    ; div100:inst22|clockout ; 8.031  ; 7.920  ; Rise       ; div100:inst22|clockout ;
+;  led[2]    ; div100:inst22|clockout ; 8.468  ; 8.351  ; Rise       ; div100:inst22|clockout ;
+;  led[3]    ; div100:inst22|clockout ; 8.765  ; 8.614  ; Rise       ; div100:inst22|clockout ;
+;  led[4]    ; div100:inst22|clockout ; 9.185  ; 9.028  ; Rise       ; div100:inst22|clockout ;
+;  led[5]    ; div100:inst22|clockout ; 8.836  ; 8.661  ; Rise       ; div100:inst22|clockout ;
+;  led[6]    ; div100:inst22|clockout ; 9.203  ; 9.023  ; Rise       ; div100:inst22|clockout ;
+; player1    ; div100:inst22|clockout ; 9.280  ; 9.472  ; Rise       ; div100:inst22|clockout ;
+; player2    ; div100:inst22|clockout ; 11.086 ; 11.152 ; Rise       ; div100:inst22|clockout ;
++------------+------------------------+--------+--------+------------+------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                                     ;
++------------+-----------------+------------------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name             ; Note                                                          ;
++------------+-----------------+------------------------+---------------------------------------------------------------+
+; 145.39 MHz ; 145.39 MHz      ; div100:inst22|clockout ;                                                               ;
+; 330.36 MHz ; 250.0 MHz       ; clk                    ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 330.36 MHz ; 330.36 MHz      ; div50:inst21|clockout  ;                                                               ;
+; 607.16 MHz ; 350.02 MHz      ; div100:inst23|clockout ; limit due to minimum period restriction (tmin)                ;
+; 882.61 MHz ; 350.02 MHz      ; keyboard:inst3|keyf    ; limit due to minimum period restriction (tmin)                ;
++------------+-----------------+------------------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-------------------------------------------------+
+; Slow 1200mV 0C Model Setup Summary              ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; div100:inst22|clockout ; -5.878 ; -240.756      ;
+; clk                    ; -2.027 ; -25.838       ;
+; div50:inst21|clockout  ; -2.027 ; -24.902       ;
+; div100:inst23|clockout ; -0.647 ; -4.861        ;
+; keyboard:inst3|keyf    ; -0.133 ; -0.133        ;
++------------------------+--------+---------------+
+
+
++-------------------------------------------------+
+; Slow 1200mV 0C Model Hold Summary               ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; div100:inst22|clockout ; -3.592 ; -38.608       ;
+; div100:inst23|clockout ; -3.452 ; -3.452        ;
+; clk                    ; -2.711 ; -2.711        ;
+; div50:inst21|clockout  ; -2.659 ; -2.659        ;
+; keyboard:inst3|keyf    ; 0.394  ; 0.000         ;
++------------------------+--------+---------------+
+
+
++-------------------------------------------------+
+; Slow 1200mV 0C Model Recovery Summary           ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; div100:inst22|clockout ; -1.272 ; -23.300       ;
+; keyboard:inst3|keyf    ; -0.942 ; -1.884        ;
++------------------------+--------+---------------+
+
+
++------------------------------------------------+
+; Slow 1200mV 0C Model Removal Summary           ;
++------------------------+-------+---------------+
+; Clock                  ; Slack ; End Point TNS ;
++------------------------+-------+---------------+
+; div100:inst22|clockout ; 1.089 ; 0.000         ;
+; keyboard:inst3|keyf    ; 1.300 ; 0.000         ;
++------------------------+-------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width                                                                                       ;
++--------+--------------+----------------+-------+------------+------------------------+------------+----------------------------+
+; Slack  ; Actual Width ; Required Width ; CCPP  ; Type       ; Clock                  ; Clock Edge ; Target                     ;
++--------+--------------+----------------+-------+------------+------------------------+------------+----------------------------+
+; -3.000 ; 1.000        ; 4.000          ; 0.000 ; Port Rate  ; clk                    ; Rise       ; clk                        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; keyboard:inst3|keyf    ; Rise       ; count_turn:inst16|count[0] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; keyboard:inst3|keyf    ; Rise       ; count_turn:inst16|count[1] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|clockout     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[0]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[10]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[11]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[12]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[13]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[14]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[15]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[1]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[2]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[3]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[4]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[5]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[6]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[7]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[8]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[9]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|clockout     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[0]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[10]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[11]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[12]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[13]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[14]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[15]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[1]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[2]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[3]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[4]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[5]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[6]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[7]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[8]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[9]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|clockout      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[0]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[10]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[11]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[12]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[13]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[14]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[15]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[1]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[2]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[3]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[4]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[5]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[6]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[7]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[8]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[9]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst10|keyf       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst10|num[0]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst10|num[1]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst10|num[2]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst14|keyf       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst14|num[0]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst14|num[1]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst14|num[2]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst3|keyf        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst3|num[0]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst3|num[1]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst3|num[2]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst|keyf         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst|num[0]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst|num[1]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst|num[2]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[0]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[1]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[2]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[3]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[4]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[5]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[6]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|n[0]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|n[1]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|n[2]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|n[3]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|n[4]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num1[0]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num1[1]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num1[2]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num1[3]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num2[0]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num2[1]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num2[2]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num2[3]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|save_num[0]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|save_num[1]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|save_num[2]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|save_num[3]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|state.0000     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|state.0001     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|state.0010     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst5|num1[0]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst5|num1[1]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst5|num1[2]        ;
++--------+--------------+----------------+-------+------------+------------------------+------------+----------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Setup Times                                                                              ;
++-----------+------------------------+-------+-------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise  ; Fall  ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+-------+-------+------------+------------------------+
+; count     ; div100:inst23|clockout ; 2.023 ; 2.022 ; Rise       ; div100:inst23|clockout ;
+; in1       ; div100:inst23|clockout ; 1.702 ; 1.853 ; Rise       ; div100:inst23|clockout ;
+; in2       ; div100:inst23|clockout ; 1.659 ; 1.726 ; Rise       ; div100:inst23|clockout ;
+; rst       ; div100:inst23|clockout ; 1.691 ; 1.699 ; Rise       ; div100:inst23|clockout ;
++-----------+------------------------+-------+-------+------------+------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Hold Times                                                                                 ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise   ; Fall   ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; count     ; div100:inst23|clockout ; -1.004 ; -1.137 ; Rise       ; div100:inst23|clockout ;
+; in1       ; div100:inst23|clockout ; -1.079 ; -1.230 ; Rise       ; div100:inst23|clockout ;
+; in2       ; div100:inst23|clockout ; -0.709 ; -0.855 ; Rise       ; div100:inst23|clockout ;
+; rst       ; div100:inst23|clockout ; -0.783 ; -0.842 ; Rise       ; div100:inst23|clockout ;
++-----------+------------------------+--------+--------+------------+------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                       ;
++------------+------------------------+--------+--------+------------+------------------------+
+; Data Port  ; Clock Port             ; Rise   ; Fall   ; Clock Edge ; Clock Reference        ;
++------------+------------------------+--------+--------+------------+------------------------+
+; choose[*]  ; div100:inst22|clockout ; 8.300  ; 8.579  ; Rise       ; div100:inst22|clockout ;
+;  choose[0] ; div100:inst22|clockout ; 7.976  ; 8.257  ; Rise       ; div100:inst22|clockout ;
+;  choose[1] ; div100:inst22|clockout ; 8.300  ; 8.579  ; Rise       ; div100:inst22|clockout ;
+;  choose[2] ; div100:inst22|clockout ; 7.967  ; 8.270  ; Rise       ; div100:inst22|clockout ;
+;  choose[3] ; div100:inst22|clockout ; 7.850  ; 7.616  ; Rise       ; div100:inst22|clockout ;
+;  choose[4] ; div100:inst22|clockout ; 7.786  ; 7.971  ; Rise       ; div100:inst22|clockout ;
+; led[*]     ; div100:inst22|clockout ; 9.050  ; 8.746  ; Rise       ; div100:inst22|clockout ;
+;  led[0]    ; div100:inst22|clockout ; 8.283  ; 7.960  ; Rise       ; div100:inst22|clockout ;
+;  led[1]    ; div100:inst22|clockout ; 7.869  ; 7.673  ; Rise       ; div100:inst22|clockout ;
+;  led[2]    ; div100:inst22|clockout ; 8.303  ; 8.095  ; Rise       ; div100:inst22|clockout ;
+;  led[3]    ; div100:inst22|clockout ; 8.611  ; 8.335  ; Rise       ; div100:inst22|clockout ;
+;  led[4]    ; div100:inst22|clockout ; 9.024  ; 8.717  ; Rise       ; div100:inst22|clockout ;
+;  led[5]    ; div100:inst22|clockout ; 8.673  ; 8.395  ; Rise       ; div100:inst22|clockout ;
+;  led[6]    ; div100:inst22|clockout ; 9.050  ; 8.746  ; Rise       ; div100:inst22|clockout ;
+; player1    ; div100:inst22|clockout ; 9.192  ; 9.793  ; Rise       ; div100:inst22|clockout ;
+; player2    ; div100:inst22|clockout ; 10.867 ; 11.298 ; Rise       ; div100:inst22|clockout ;
++------------+------------------------+--------+--------+------------+------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                               ;
++------------+------------------------+--------+--------+------------+------------------------+
+; Data Port  ; Clock Port             ; Rise   ; Fall   ; Clock Edge ; Clock Reference        ;
++------------+------------------------+--------+--------+------------+------------------------+
+; choose[*]  ; div100:inst22|clockout ; 7.561  ; 7.398  ; Rise       ; div100:inst22|clockout ;
+;  choose[0] ; div100:inst22|clockout ; 7.740  ; 8.012  ; Rise       ; div100:inst22|clockout ;
+;  choose[1] ; div100:inst22|clockout ; 8.050  ; 8.319  ; Rise       ; div100:inst22|clockout ;
+;  choose[2] ; div100:inst22|clockout ; 7.736  ; 8.026  ; Rise       ; div100:inst22|clockout ;
+;  choose[3] ; div100:inst22|clockout ; 7.623  ; 7.398  ; Rise       ; div100:inst22|clockout ;
+;  choose[4] ; div100:inst22|clockout ; 7.561  ; 7.740  ; Rise       ; div100:inst22|clockout ;
+; led[*]     ; div100:inst22|clockout ; 7.637  ; 7.448  ; Rise       ; div100:inst22|clockout ;
+;  led[0]    ; div100:inst22|clockout ; 8.036  ; 7.725  ; Rise       ; div100:inst22|clockout ;
+;  led[1]    ; div100:inst22|clockout ; 7.637  ; 7.448  ; Rise       ; div100:inst22|clockout ;
+;  led[2]    ; div100:inst22|clockout ; 8.058  ; 7.858  ; Rise       ; div100:inst22|clockout ;
+;  led[3]    ; div100:inst22|clockout ; 8.354  ; 8.088  ; Rise       ; div100:inst22|clockout ;
+;  led[4]    ; div100:inst22|clockout ; 8.749  ; 8.455  ; Rise       ; div100:inst22|clockout ;
+;  led[5]    ; div100:inst22|clockout ; 8.412  ; 8.145  ; Rise       ; div100:inst22|clockout ;
+;  led[6]    ; div100:inst22|clockout ; 8.775  ; 8.482  ; Rise       ; div100:inst22|clockout ;
+; player1    ; div100:inst22|clockout ; 8.650  ; 9.062  ; Rise       ; div100:inst22|clockout ;
+; player2    ; div100:inst22|clockout ; 10.426 ; 10.701 ; Rise       ; div100:inst22|clockout ;
++------------+------------------------+--------+--------+------------+------------------------+
+
+
++-------------------------------------------------+
+; Fast 1200mV 0C Model Setup Summary              ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; div100:inst22|clockout ; -2.110 ; -70.972       ;
+; div50:inst21|clockout  ; -0.373 ; -3.636        ;
+; clk                    ; -0.358 ; -3.080        ;
+; div100:inst23|clockout ; 0.251  ; 0.000         ;
+; keyboard:inst3|keyf    ; 0.488  ; 0.000         ;
++------------------------+--------+---------------+
+
+
++-------------------------------------------------+
+; Fast 1200mV 0C Model Hold Summary               ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; div100:inst22|clockout ; -1.792 ; -21.902       ;
+; div100:inst23|clockout ; -1.709 ; -1.709        ;
+; clk                    ; -1.405 ; -1.405        ;
+; div50:inst21|clockout  ; -1.349 ; -1.349        ;
+; keyboard:inst3|keyf    ; 0.179  ; 0.000         ;
++------------------------+--------+---------------+
+
+
++-------------------------------------------------+
+; Fast 1200mV 0C Model Recovery Summary           ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; div100:inst22|clockout ; -0.090 ; -0.102        ;
+; keyboard:inst3|keyf    ; -0.018 ; -0.036        ;
++------------------------+--------+---------------+
+
+
++------------------------------------------------+
+; Fast 1200mV 0C Model Removal Summary           ;
++------------------------+-------+---------------+
+; Clock                  ; Slack ; End Point TNS ;
++------------------------+-------+---------------+
+; div100:inst22|clockout ; 0.486 ; 0.000         ;
+; keyboard:inst3|keyf    ; 0.644 ; 0.000         ;
++------------------------+-------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width                                                                                       ;
++--------+--------------+----------------+-------+------------+------------------------+------------+----------------------------+
+; Slack  ; Actual Width ; Required Width ; CCPP  ; Type       ; Clock                  ; Clock Edge ; Target                     ;
++--------+--------------+----------------+-------+------------+------------------------+------------+----------------------------+
+; -3.000 ; 1.000        ; 4.000          ; 0.000 ; Port Rate  ; clk                    ; Rise       ; clk                        ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; keyboard:inst3|keyf    ; Rise       ; count_turn:inst16|count[0] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; keyboard:inst3|keyf    ; Rise       ; count_turn:inst16|count[1] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|clockout     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[0]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[10]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[11]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[12]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[13]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[14]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[15]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[1]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[2]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[3]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[4]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[5]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[6]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[7]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[8]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div50:inst21|clockout  ; Rise       ; div100:inst22|count[9]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|clockout     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[0]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[10]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[11]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[12]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[13]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[14]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[15]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[1]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[2]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[3]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[4]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[5]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[6]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[7]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[8]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; div100:inst23|count[9]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|clockout      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[0]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[10]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[11]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[12]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[13]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[14]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[15]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[1]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[2]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[3]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[4]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[5]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[6]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[7]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[8]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; clk                    ; Rise       ; div50:inst21|count[9]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst10|keyf       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst10|num[0]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst10|num[1]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst10|num[2]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst14|keyf       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst14|num[0]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst14|num[1]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst14|num[2]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst3|keyf        ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst3|num[0]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst3|num[1]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst3|num[2]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst|keyf         ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst|num[0]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst|num[1]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst23|clockout ; Rise       ; keyboard:inst|num[2]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[0]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[1]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[2]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[3]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[4]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[5]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|e[6]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|n[0]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|n[1]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|n[2]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|n[3]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; pianxuan:inst20|n[4]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num1[0]        ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num1[1]        ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num1[2]        ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num1[3]        ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num2[0]        ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num2[1]        ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num2[2]        ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|num2[3]        ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|save_num[0]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|save_num[1]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|save_num[2]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|save_num[3]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|state.0000     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|state.0001     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst2|state.0010     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst5|num1[0]        ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst5|num1[1]        ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period ; div100:inst22|clockout ; Rise       ; radom:inst5|num1[2]        ;
++--------+--------------+----------------+-------+------------+------------------------+------------+----------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Setup Times                                                                              ;
++-----------+------------------------+-------+-------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise  ; Fall  ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+-------+-------+------------+------------------------+
+; count     ; div100:inst23|clockout ; 0.996 ; 1.674 ; Rise       ; div100:inst23|clockout ;
+; in1       ; div100:inst23|clockout ; 0.909 ; 1.570 ; Rise       ; div100:inst23|clockout ;
+; in2       ; div100:inst23|clockout ; 0.862 ; 1.505 ; Rise       ; div100:inst23|clockout ;
+; rst       ; div100:inst23|clockout ; 0.843 ; 1.458 ; Rise       ; div100:inst23|clockout ;
++-----------+------------------------+-------+-------+------------+------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Hold Times                                                                                 ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise   ; Fall   ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; count     ; div100:inst23|clockout ; -0.560 ; -1.212 ; Rise       ; div100:inst23|clockout ;
+; in1       ; div100:inst23|clockout ; -0.602 ; -1.257 ; Rise       ; div100:inst23|clockout ;
+; in2       ; div100:inst23|clockout ; -0.441 ; -1.063 ; Rise       ; div100:inst23|clockout ;
+; rst       ; div100:inst23|clockout ; -0.420 ; -1.022 ; Rise       ; div100:inst23|clockout ;
++-----------+------------------------+--------+--------+------------+------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                     ;
++------------+------------------------+-------+-------+------------+------------------------+
+; Data Port  ; Clock Port             ; Rise  ; Fall  ; Clock Edge ; Clock Reference        ;
++------------+------------------------+-------+-------+------------+------------------------+
+; choose[*]  ; div100:inst22|clockout ; 4.301 ; 4.174 ; Rise       ; div100:inst22|clockout ;
+;  choose[0] ; div100:inst22|clockout ; 4.127 ; 4.021 ; Rise       ; div100:inst22|clockout ;
+;  choose[1] ; div100:inst22|clockout ; 4.301 ; 4.174 ; Rise       ; div100:inst22|clockout ;
+;  choose[2] ; div100:inst22|clockout ; 4.143 ; 4.024 ; Rise       ; div100:inst22|clockout ;
+;  choose[3] ; div100:inst22|clockout ; 3.843 ; 3.940 ; Rise       ; div100:inst22|clockout ;
+;  choose[4] ; div100:inst22|clockout ; 4.037 ; 3.921 ; Rise       ; div100:inst22|clockout ;
+; led[*]     ; div100:inst22|clockout ; 4.407 ; 4.570 ; Rise       ; div100:inst22|clockout ;
+;  led[0]    ; div100:inst22|clockout ; 4.020 ; 4.137 ; Rise       ; div100:inst22|clockout ;
+;  led[1]    ; div100:inst22|clockout ; 3.873 ; 3.943 ; Rise       ; div100:inst22|clockout ;
+;  led[2]    ; div100:inst22|clockout ; 4.086 ; 4.206 ; Rise       ; div100:inst22|clockout ;
+;  led[3]    ; div100:inst22|clockout ; 4.194 ; 4.359 ; Rise       ; div100:inst22|clockout ;
+;  led[4]    ; div100:inst22|clockout ; 4.373 ; 4.560 ; Rise       ; div100:inst22|clockout ;
+;  led[5]    ; div100:inst22|clockout ; 4.223 ; 4.366 ; Rise       ; div100:inst22|clockout ;
+;  led[6]    ; div100:inst22|clockout ; 4.407 ; 4.570 ; Rise       ; div100:inst22|clockout ;
+; player1    ; div100:inst22|clockout ; 4.814 ; 4.645 ; Rise       ; div100:inst22|clockout ;
+; player2    ; div100:inst22|clockout ; 5.842 ; 5.600 ; Rise       ; div100:inst22|clockout ;
++------------+------------------------+-------+-------+------------+------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                             ;
++------------+------------------------+-------+-------+------------+------------------------+
+; Data Port  ; Clock Port             ; Rise  ; Fall  ; Clock Edge ; Clock Reference        ;
++------------+------------------------+-------+-------+------------+------------------------+
+; choose[*]  ; div100:inst22|clockout ; 3.735 ; 3.810 ; Rise       ; div100:inst22|clockout ;
+;  choose[0] ; div100:inst22|clockout ; 4.006 ; 3.904 ; Rise       ; div100:inst22|clockout ;
+;  choose[1] ; div100:inst22|clockout ; 4.173 ; 4.050 ; Rise       ; div100:inst22|clockout ;
+;  choose[2] ; div100:inst22|clockout ; 4.025 ; 3.909 ; Rise       ; div100:inst22|clockout ;
+;  choose[3] ; div100:inst22|clockout ; 3.735 ; 3.829 ; Rise       ; div100:inst22|clockout ;
+;  choose[4] ; div100:inst22|clockout ; 3.923 ; 3.810 ; Rise       ; div100:inst22|clockout ;
+; led[*]     ; div100:inst22|clockout ; 3.761 ; 3.829 ; Rise       ; div100:inst22|clockout ;
+;  led[0]    ; div100:inst22|clockout ; 3.903 ; 4.017 ; Rise       ; div100:inst22|clockout ;
+;  led[1]    ; div100:inst22|clockout ; 3.761 ; 3.829 ; Rise       ; div100:inst22|clockout ;
+;  led[2]    ; div100:inst22|clockout ; 3.968 ; 4.085 ; Rise       ; div100:inst22|clockout ;
+;  led[3]    ; div100:inst22|clockout ; 4.072 ; 4.232 ; Rise       ; div100:inst22|clockout ;
+;  led[4]    ; div100:inst22|clockout ; 4.244 ; 4.425 ; Rise       ; div100:inst22|clockout ;
+;  led[5]    ; div100:inst22|clockout ; 4.099 ; 4.237 ; Rise       ; div100:inst22|clockout ;
+;  led[6]    ; div100:inst22|clockout ; 4.276 ; 4.434 ; Rise       ; div100:inst22|clockout ;
+; player1    ; div100:inst22|clockout ; 4.483 ; 4.338 ; Rise       ; div100:inst22|clockout ;
+; player2    ; div100:inst22|clockout ; 5.580 ; 5.355 ; Rise       ; div100:inst22|clockout ;
++------------+------------------------+-------+-------+------------+------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                     ;
++-------------------------+----------+---------+----------+---------+---------------------+
+; Clock                   ; Setup    ; Hold    ; Recovery ; Removal ; Minimum Pulse Width ;
++-------------------------+----------+---------+----------+---------+---------------------+
+; Worst-case Slack        ; -6.421   ; -3.890  ; -1.432   ; 0.0     ; -3.000              ;
+;  clk                    ; -2.297   ; -2.933  ; N/A      ; N/A     ; N/A                 ;
+;  div100:inst22|clockout ; -6.421   ; -3.890  ; -1.432   ; 0.486   ; N/A                 ;
+;  div100:inst23|clockout ; -0.753   ; -3.750  ; N/A      ; N/A     ; N/A                 ;
+;  div50:inst21|clockout  ; -2.285   ; -2.924  ; N/A      ; N/A     ; N/A                 ;
+;  keyboard:inst3|keyf    ; -0.244   ; 0.179   ; -1.135   ; 0.644   ; N/A                 ;
+; Design-wide TNS         ; -331.807 ; -52.788 ; -30.007  ; 0.0     ; N/A                 ;
+;  clk                    ; -30.086  ; -2.933  ; N/A      ; N/A     ; N/A                 ;
+;  div100:inst22|clockout ; -265.652 ; -43.181 ; -27.737  ; 0.000   ; N/A                 ;
+;  div100:inst23|clockout ; -6.321   ; -3.750  ; N/A      ; N/A     ; N/A                 ;
+;  div50:inst21|clockout  ; -29.504  ; -2.924  ; N/A      ; N/A     ; N/A                 ;
+;  keyboard:inst3|keyf    ; -0.244   ; 0.000   ; -2.270   ; 0.000   ; N/A                 ;
++-------------------------+----------+---------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+
+; player1       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; player2       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; choose[4]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; choose[3]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; choose[2]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; choose[1]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; choose[0]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; led[7]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; led[6]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; led[5]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; led[4]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; led[3]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; led[2]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; led[1]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; led[0]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; player1       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.0411 V                             ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.0411 V                            ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; player2       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.33 V              ; -0.00221 V          ; 0.0906 V                             ; 0.0569 V                             ; 3.77e-009 s                 ; 3.49e-009 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.33 V             ; -0.00221 V         ; 0.0906 V                            ; 0.0569 V                            ; 3.77e-009 s                ; 3.49e-009 s                ; Yes                       ; Yes                       ;
+; choose[4]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.34 V              ; -0.00809 V          ; 0.14 V                               ; 0.0443 V                             ; 6.89e-010 s                 ; 6.57e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.34 V             ; -0.00809 V         ; 0.14 V                              ; 0.0443 V                            ; 6.89e-010 s                ; 6.57e-010 s                ; Yes                       ; Yes                       ;
+; choose[3]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.34 V              ; -0.00809 V          ; 0.14 V                               ; 0.0443 V                             ; 6.89e-010 s                 ; 6.57e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.34 V             ; -0.00809 V         ; 0.14 V                              ; 0.0443 V                            ; 6.89e-010 s                ; 6.57e-010 s                ; Yes                       ; Yes                       ;
+; choose[2]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.34 V              ; -0.00809 V          ; 0.14 V                               ; 0.0443 V                             ; 6.89e-010 s                 ; 6.57e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.34 V             ; -0.00809 V         ; 0.14 V                              ; 0.0443 V                            ; 6.89e-010 s                ; 6.57e-010 s                ; Yes                       ; Yes                       ;
+; choose[1]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.0411 V                             ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.0411 V                            ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; choose[0]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.0411 V                             ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.0411 V                            ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; led[7]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.34 V              ; -0.00809 V          ; 0.14 V                               ; 0.0443 V                             ; 6.89e-010 s                 ; 6.57e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.34 V             ; -0.00809 V         ; 0.14 V                              ; 0.0443 V                            ; 6.89e-010 s                ; 6.57e-010 s                ; Yes                       ; Yes                       ;
+; led[6]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.34 V              ; -0.00809 V          ; 0.14 V                               ; 0.0443 V                             ; 6.89e-010 s                 ; 6.57e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.34 V             ; -0.00809 V         ; 0.14 V                              ; 0.0443 V                            ; 6.89e-010 s                ; 6.57e-010 s                ; Yes                       ; Yes                       ;
+; led[5]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.34 V              ; -0.00809 V          ; 0.14 V                               ; 0.0443 V                             ; 6.89e-010 s                 ; 6.57e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.34 V             ; -0.00809 V         ; 0.14 V                              ; 0.0443 V                            ; 6.89e-010 s                ; 6.57e-010 s                ; Yes                       ; Yes                       ;
+; led[4]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.34 V              ; -0.00809 V          ; 0.14 V                               ; 0.0443 V                             ; 6.89e-010 s                 ; 6.57e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.34 V             ; -0.00809 V         ; 0.14 V                              ; 0.0443 V                            ; 6.89e-010 s                ; 6.57e-010 s                ; Yes                       ; Yes                       ;
+; led[3]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.34 V              ; -0.00809 V          ; 0.14 V                               ; 0.0443 V                             ; 6.89e-010 s                 ; 6.57e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.34 V             ; -0.00809 V         ; 0.14 V                              ; 0.0443 V                            ; 6.89e-010 s                ; 6.57e-010 s                ; Yes                       ; Yes                       ;
+; led[2]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.34 V              ; -0.00809 V          ; 0.14 V                               ; 0.0443 V                             ; 6.89e-010 s                 ; 6.57e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.34 V             ; -0.00809 V         ; 0.14 V                              ; 0.0443 V                            ; 6.89e-010 s                ; 6.57e-010 s                ; Yes                       ; Yes                       ;
+; led[1]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.35 V              ; -0.00723 V          ; 0.126 V                              ; 0.0114 V                             ; 4.71e-010 s                 ; 4.63e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.35 V             ; -0.00723 V         ; 0.126 V                             ; 0.0114 V                            ; 4.71e-010 s                ; 4.63e-010 s                ; Yes                       ; Yes                       ;
+; led[0]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.0411 V                             ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.0411 V                            ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.53e-007 V                  ; 2.35 V              ; -0.00333 V          ; 0.096 V                              ; 0.00594 V                            ; 4.5e-010 s                  ; 3.85e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.53e-007 V                 ; 2.35 V             ; -0.00333 V         ; 0.096 V                             ; 0.00594 V                           ; 4.5e-010 s                 ; 3.85e-010 s                ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.51e-007 V                  ; 2.34 V              ; -0.00708 V          ; 0.108 V                              ; 0.0269 V                             ; 6.58e-010 s                 ; 8.21e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.51e-007 V                 ; 2.34 V             ; -0.00708 V         ; 0.108 V                             ; 0.0269 V                            ; 6.58e-010 s                ; 8.21e-010 s                ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; player1       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.04e-008 V                  ; 2.71 V              ; -0.0353 V           ; 0.171 V                              ; 0.0976 V                             ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.04e-008 V                 ; 2.71 V             ; -0.0353 V          ; 0.171 V                             ; 0.0976 V                            ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; player2       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.04e-008 V                  ; 2.64 V              ; -0.0116 V           ; 0.204 V                              ; 0.177 V                              ; 2.38e-009 s                 ; 2.23e-009 s                 ; No                         ; Yes                        ; 2.62 V                      ; 4.04e-008 V                 ; 2.64 V             ; -0.0116 V          ; 0.204 V                             ; 0.177 V                             ; 2.38e-009 s                ; 2.23e-009 s                ; No                        ; Yes                       ;
+; choose[4]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.72e-008 V                  ; 2.71 V              ; -0.0345 V           ; 0.145 V                              ; 0.0672 V                             ; 4.5e-010 s                  ; 4.16e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.72e-008 V                 ; 2.71 V             ; -0.0345 V          ; 0.145 V                             ; 0.0672 V                            ; 4.5e-010 s                 ; 4.16e-010 s                ; No                        ; Yes                       ;
+; choose[3]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.72e-008 V                  ; 2.71 V              ; -0.0345 V           ; 0.145 V                              ; 0.0672 V                             ; 4.5e-010 s                  ; 4.16e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.72e-008 V                 ; 2.71 V             ; -0.0345 V          ; 0.145 V                             ; 0.0672 V                            ; 4.5e-010 s                 ; 4.16e-010 s                ; No                        ; Yes                       ;
+; choose[2]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.72e-008 V                  ; 2.71 V              ; -0.0345 V           ; 0.145 V                              ; 0.0672 V                             ; 4.5e-010 s                  ; 4.16e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.72e-008 V                 ; 2.71 V             ; -0.0345 V          ; 0.145 V                             ; 0.0672 V                            ; 4.5e-010 s                 ; 4.16e-010 s                ; No                        ; Yes                       ;
+; choose[1]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.04e-008 V                  ; 2.71 V              ; -0.0353 V           ; 0.171 V                              ; 0.0976 V                             ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.04e-008 V                 ; 2.71 V             ; -0.0353 V          ; 0.171 V                             ; 0.0976 V                            ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; choose[0]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.04e-008 V                  ; 2.71 V              ; -0.0353 V           ; 0.171 V                              ; 0.0976 V                             ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.04e-008 V                 ; 2.71 V             ; -0.0353 V          ; 0.171 V                             ; 0.0976 V                            ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; led[7]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.72e-008 V                  ; 2.71 V              ; -0.0345 V           ; 0.145 V                              ; 0.0672 V                             ; 4.5e-010 s                  ; 4.16e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.72e-008 V                 ; 2.71 V             ; -0.0345 V          ; 0.145 V                             ; 0.0672 V                            ; 4.5e-010 s                 ; 4.16e-010 s                ; No                        ; Yes                       ;
+; led[6]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.72e-008 V                  ; 2.71 V              ; -0.0345 V           ; 0.145 V                              ; 0.0672 V                             ; 4.5e-010 s                  ; 4.16e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.72e-008 V                 ; 2.71 V             ; -0.0345 V          ; 0.145 V                             ; 0.0672 V                            ; 4.5e-010 s                 ; 4.16e-010 s                ; No                        ; Yes                       ;
+; led[5]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.72e-008 V                  ; 2.71 V              ; -0.0345 V           ; 0.145 V                              ; 0.0672 V                             ; 4.5e-010 s                  ; 4.16e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.72e-008 V                 ; 2.71 V             ; -0.0345 V          ; 0.145 V                             ; 0.0672 V                            ; 4.5e-010 s                 ; 4.16e-010 s                ; No                        ; Yes                       ;
+; led[4]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.72e-008 V                  ; 2.71 V              ; -0.0345 V           ; 0.145 V                              ; 0.0672 V                             ; 4.5e-010 s                  ; 4.16e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.72e-008 V                 ; 2.71 V             ; -0.0345 V          ; 0.145 V                             ; 0.0672 V                            ; 4.5e-010 s                 ; 4.16e-010 s                ; No                        ; Yes                       ;
+; led[3]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.72e-008 V                  ; 2.71 V              ; -0.0345 V           ; 0.145 V                              ; 0.0672 V                             ; 4.5e-010 s                  ; 4.16e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.72e-008 V                 ; 2.71 V             ; -0.0345 V          ; 0.145 V                             ; 0.0672 V                            ; 4.5e-010 s                 ; 4.16e-010 s                ; No                        ; Yes                       ;
+; led[2]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.72e-008 V                  ; 2.71 V              ; -0.0345 V           ; 0.145 V                              ; 0.0672 V                             ; 4.5e-010 s                  ; 4.16e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.72e-008 V                 ; 2.71 V             ; -0.0345 V          ; 0.145 V                             ; 0.0672 V                            ; 4.5e-010 s                 ; 4.16e-010 s                ; No                        ; Yes                       ;
+; led[1]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.72e-008 V                  ; 2.72 V              ; -0.04 V             ; 0.163 V                              ; 0.0908 V                             ; 2.71e-010 s                 ; 2.61e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 2.72e-008 V                 ; 2.72 V             ; -0.04 V            ; 0.163 V                             ; 0.0908 V                            ; 2.71e-010 s                ; 2.61e-010 s                ; Yes                       ; Yes                       ;
+; led[0]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.04e-008 V                  ; 2.71 V              ; -0.0353 V           ; 0.171 V                              ; 0.0976 V                             ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.04e-008 V                 ; 2.71 V             ; -0.0353 V          ; 0.171 V                             ; 0.0976 V                            ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.2e-008 V                   ; 2.74 V              ; -0.061 V            ; 0.159 V                              ; 0.0782 V                             ; 2.7e-010 s                  ; 2.2e-010 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.2e-008 V                  ; 2.74 V             ; -0.061 V           ; 0.159 V                             ; 0.0782 V                            ; 2.7e-010 s                 ; 2.2e-010 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.54e-008 V                  ; 2.7 V               ; -0.0121 V           ; 0.274 V                              ; 0.0336 V                             ; 3.18e-010 s                 ; 4.96e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 3.54e-008 V                 ; 2.7 V              ; -0.0121 V          ; 0.274 V                             ; 0.0336 V                            ; 3.18e-010 s                ; 4.96e-010 s                ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                             ;
++------------------------+------------------------+----------+----------+----------+----------+
+; From Clock             ; To Clock               ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------------+------------------------+----------+----------+----------+----------+
+; clk                    ; clk                    ; 200      ; 0        ; 0        ; 0        ;
+; div50:inst21|clockout  ; clk                    ; 1        ; 1        ; 0        ; 0        ;
+; div50:inst21|clockout  ; div50:inst21|clockout  ; 200      ; 0        ; 0        ; 0        ;
+; div100:inst22|clockout ; div50:inst21|clockout  ; 1        ; 1        ; 0        ; 0        ;
+; div100:inst22|clockout ; div100:inst22|clockout ; 5824     ; 0        ; 0        ; 0        ;
+; div100:inst23|clockout ; div100:inst22|clockout ; 61       ; 1        ; 0        ; 0        ;
+; keyboard:inst3|keyf    ; div100:inst22|clockout ; 50       ; 20       ; 0        ; 0        ;
+; div100:inst23|clockout ; div100:inst23|clockout ; 43       ; 0        ; 0        ; 0        ;
+; keyboard:inst3|keyf    ; div100:inst23|clockout ; 1        ; 1        ; 0        ; 0        ;
+; keyboard:inst3|keyf    ; keyboard:inst3|keyf    ; 2        ; 0        ; 0        ; 0        ;
++------------------------+------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                              ;
++------------------------+------------------------+----------+----------+----------+----------+
+; From Clock             ; To Clock               ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------------+------------------------+----------+----------+----------+----------+
+; clk                    ; clk                    ; 200      ; 0        ; 0        ; 0        ;
+; div50:inst21|clockout  ; clk                    ; 1        ; 1        ; 0        ; 0        ;
+; div50:inst21|clockout  ; div50:inst21|clockout  ; 200      ; 0        ; 0        ; 0        ;
+; div100:inst22|clockout ; div50:inst21|clockout  ; 1        ; 1        ; 0        ; 0        ;
+; div100:inst22|clockout ; div100:inst22|clockout ; 5824     ; 0        ; 0        ; 0        ;
+; div100:inst23|clockout ; div100:inst22|clockout ; 61       ; 1        ; 0        ; 0        ;
+; keyboard:inst3|keyf    ; div100:inst22|clockout ; 50       ; 20       ; 0        ; 0        ;
+; div100:inst23|clockout ; div100:inst23|clockout ; 43       ; 0        ; 0        ; 0        ;
+; keyboard:inst3|keyf    ; div100:inst23|clockout ; 1        ; 1        ; 0        ; 0        ;
+; keyboard:inst3|keyf    ; keyboard:inst3|keyf    ; 2        ; 0        ; 0        ; 0        ;
++------------------------+------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------------------------+
+; Recovery Transfers                                                                          ;
++------------------------+------------------------+----------+----------+----------+----------+
+; From Clock             ; To Clock               ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------------+------------------------+----------+----------+----------+----------+
+; div100:inst23|clockout ; div100:inst22|clockout ; 26       ; 0        ; 0        ; 0        ;
+; div100:inst23|clockout ; keyboard:inst3|keyf    ; 2        ; 0        ; 0        ; 0        ;
++------------------------+------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------------------------+
+; Removal Transfers                                                                           ;
++------------------------+------------------------+----------+----------+----------+----------+
+; From Clock             ; To Clock               ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------------+------------------------+----------+----------+----------+----------+
+; div100:inst23|clockout ; div100:inst22|clockout ; 26       ; 0        ; 0        ; 0        ;
+; div100:inst23|clockout ; keyboard:inst3|keyf    ; 2        ; 0        ; 0        ; 0        ;
++------------------------+------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design.
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design.
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 4     ; 4    ;
+; Unconstrained Input Port Paths  ; 16    ; 16   ;
+; Unconstrained Output Ports      ; 14    ; 14   ;
+; Unconstrained Output Port Paths ; 16    ; 16   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 8.0 Build 215 05/29/2008 SJ Full Version
+    Info: Processing started: Wed Dec 11 18:10:19 2019
+Info: Command: quartus_sta dicegame -c dicegame
+Info: qsta_default_script.tcl version: #3
+Critical Warning: Synopsys Design Constraints File file not found: 'dicegame.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info: No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: Deriving Clocks
+    Info: create_clock -period 1.000 -name div100:inst22|clockout div100:inst22|clockout
+    Info: create_clock -period 1.000 -name div100:inst23|clockout div100:inst23|clockout
+    Info: create_clock -period 1.000 -name div50:inst21|clockout div50:inst21|clockout
+    Info: create_clock -period 1.000 -name clk clk
+    Info: create_clock -period 1.000 -name keyboard:inst3|keyf keyboard:inst3|keyf
+Warning: The following clock transfers have no clock uncertainty assignment
+    Warning: From div100:inst22|clockout (Rise) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From div100:inst22|clockout (Fall) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Rise) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Fall) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From div50:inst21|clockout (Rise) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Rise) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Fall) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From div100:inst22|clockout (Rise) to div100:inst22|clockout (Fall) (setup and hold)
+    Warning: From div100:inst22|clockout (Fall) to div100:inst22|clockout (Fall) (setup and hold)
+    Warning: From div50:inst21|clockout (Rise) to div100:inst22|clockout (Fall) (setup and hold)
+    Warning: From div100:inst22|clockout (Rise) to div100:inst23|clockout (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Rise) to div100:inst23|clockout (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Fall) to div100:inst23|clockout (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Rise) to div100:inst23|clockout (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Fall) to div100:inst23|clockout (Rise) (setup and hold)
+    Warning: From div100:inst22|clockout (Rise) to div100:inst23|clockout (Fall) (setup and hold)
+    Warning: From div100:inst23|clockout (Rise) to div100:inst23|clockout (Fall) (setup and hold)
+    Warning: From div100:inst23|clockout (Fall) to div100:inst23|clockout (Fall) (setup and hold)
+    Warning: From div100:inst22|clockout (Rise) to div50:inst21|clockout (Rise) (setup and hold)
+    Warning: From div100:inst22|clockout (Fall) to div50:inst21|clockout (Rise) (setup and hold)
+    Warning: From div50:inst21|clockout (Rise) to div50:inst21|clockout (Rise) (setup and hold)
+    Warning: From div50:inst21|clockout (Fall) to div50:inst21|clockout (Rise) (setup and hold)
+    Warning: From clk (Rise) to div50:inst21|clockout (Rise) (setup and hold)
+    Warning: From div50:inst21|clockout (Rise) to div50:inst21|clockout (Fall) (setup and hold)
+    Warning: From div50:inst21|clockout (Fall) to div50:inst21|clockout (Fall) (setup and hold)
+    Warning: From clk (Rise) to div50:inst21|clockout (Fall) (setup and hold)
+    Warning: From div50:inst21|clockout (Rise) to clk (Rise) (setup and hold)
+    Warning: From div50:inst21|clockout (Fall) to clk (Rise) (setup and hold)
+    Warning: From clk (Rise) to clk (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Rise) to keyboard:inst3|keyf (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Rise) to keyboard:inst3|keyf (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Fall) to keyboard:inst3|keyf (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Rise) to keyboard:inst3|keyf (Fall) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Rise) to keyboard:inst3|keyf (Fall) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Fall) to keyboard:inst3|keyf (Fall) (setup and hold)
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -6.421
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -6.421      -265.652 div100:inst22|clockout 
+    Info:    -2.297       -30.086 clk 
+    Info:    -2.285       -29.504 div50:inst21|clockout 
+    Info:    -0.753        -6.321 div100:inst23|clockout 
+    Info:    -0.244        -0.244 keyboard:inst3|keyf 
+Info: Worst-case hold slack is -3.890
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -3.890       -43.181 div100:inst22|clockout 
+    Info:    -3.750        -3.750 div100:inst23|clockout 
+    Info:    -2.933        -2.933 clk 
+    Info:    -2.924        -2.924 div50:inst21|clockout 
+    Info:     0.440         0.000 keyboard:inst3|keyf 
+Info: Worst-case recovery slack is -1.432
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -1.432       -27.737 div100:inst22|clockout 
+    Info:    -1.135        -2.270 keyboard:inst3|keyf 
+Info: Worst-case removal slack is 1.183
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     1.183         0.000 div100:inst22|clockout 
+    Info:     1.457         0.000 keyboard:inst3|keyf 
+Critical Warning: Found minimum pulse width or period violations. See Report Minimum Pulse Width for details.
+Info: Analyzing Slow 1200mV 0C Model
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: The following clock transfers have no clock uncertainty assignment
+    Warning: From div100:inst22|clockout (Rise) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From div100:inst22|clockout (Fall) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Rise) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Fall) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From div50:inst21|clockout (Rise) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Rise) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Fall) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From div100:inst22|clockout (Rise) to div100:inst22|clockout (Fall) (setup and hold)
+    Warning: From div100:inst22|clockout (Fall) to div100:inst22|clockout (Fall) (setup and hold)
+    Warning: From div50:inst21|clockout (Rise) to div100:inst22|clockout (Fall) (setup and hold)
+    Warning: From div100:inst22|clockout (Rise) to div100:inst23|clockout (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Rise) to div100:inst23|clockout (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Fall) to div100:inst23|clockout (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Rise) to div100:inst23|clockout (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Fall) to div100:inst23|clockout (Rise) (setup and hold)
+    Warning: From div100:inst22|clockout (Rise) to div100:inst23|clockout (Fall) (setup and hold)
+    Warning: From div100:inst23|clockout (Rise) to div100:inst23|clockout (Fall) (setup and hold)
+    Warning: From div100:inst23|clockout (Fall) to div100:inst23|clockout (Fall) (setup and hold)
+    Warning: From div100:inst22|clockout (Rise) to div50:inst21|clockout (Rise) (setup and hold)
+    Warning: From div100:inst22|clockout (Fall) to div50:inst21|clockout (Rise) (setup and hold)
+    Warning: From div50:inst21|clockout (Rise) to div50:inst21|clockout (Rise) (setup and hold)
+    Warning: From div50:inst21|clockout (Fall) to div50:inst21|clockout (Rise) (setup and hold)
+    Warning: From clk (Rise) to div50:inst21|clockout (Rise) (setup and hold)
+    Warning: From div50:inst21|clockout (Rise) to div50:inst21|clockout (Fall) (setup and hold)
+    Warning: From div50:inst21|clockout (Fall) to div50:inst21|clockout (Fall) (setup and hold)
+    Warning: From clk (Rise) to div50:inst21|clockout (Fall) (setup and hold)
+    Warning: From div50:inst21|clockout (Rise) to clk (Rise) (setup and hold)
+    Warning: From div50:inst21|clockout (Fall) to clk (Rise) (setup and hold)
+    Warning: From clk (Rise) to clk (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Rise) to keyboard:inst3|keyf (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Rise) to keyboard:inst3|keyf (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Fall) to keyboard:inst3|keyf (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Rise) to keyboard:inst3|keyf (Fall) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Rise) to keyboard:inst3|keyf (Fall) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Fall) to keyboard:inst3|keyf (Fall) (setup and hold)
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -5.878
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -5.878      -240.756 div100:inst22|clockout 
+    Info:    -2.027       -25.838 clk 
+    Info:    -2.027       -24.902 div50:inst21|clockout 
+    Info:    -0.647        -4.861 div100:inst23|clockout 
+    Info:    -0.133        -0.133 keyboard:inst3|keyf 
+Info: Worst-case hold slack is -3.592
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -3.592       -38.608 div100:inst22|clockout 
+    Info:    -3.452        -3.452 div100:inst23|clockout 
+    Info:    -2.711        -2.711 clk 
+    Info:    -2.659        -2.659 div50:inst21|clockout 
+    Info:     0.394         0.000 keyboard:inst3|keyf 
+Info: Worst-case recovery slack is -1.272
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -1.272       -23.300 div100:inst22|clockout 
+    Info:    -0.942        -1.884 keyboard:inst3|keyf 
+Info: Worst-case removal slack is 1.089
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     1.089         0.000 div100:inst22|clockout 
+    Info:     1.300         0.000 keyboard:inst3|keyf 
+Critical Warning: Found minimum pulse width or period violations. See Report Minimum Pulse Width for details.
+Info: Analyzing Fast 1200mV 0C Model
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: The following clock transfers have no clock uncertainty assignment
+    Warning: From div100:inst22|clockout (Rise) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From div100:inst22|clockout (Fall) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Rise) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Fall) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From div50:inst21|clockout (Rise) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Rise) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Fall) to div100:inst22|clockout (Rise) (setup and hold)
+    Warning: From div100:inst22|clockout (Rise) to div100:inst22|clockout (Fall) (setup and hold)
+    Warning: From div100:inst22|clockout (Fall) to div100:inst22|clockout (Fall) (setup and hold)
+    Warning: From div50:inst21|clockout (Rise) to div100:inst22|clockout (Fall) (setup and hold)
+    Warning: From div100:inst22|clockout (Rise) to div100:inst23|clockout (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Rise) to div100:inst23|clockout (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Fall) to div100:inst23|clockout (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Rise) to div100:inst23|clockout (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Fall) to div100:inst23|clockout (Rise) (setup and hold)
+    Warning: From div100:inst22|clockout (Rise) to div100:inst23|clockout (Fall) (setup and hold)
+    Warning: From div100:inst23|clockout (Rise) to div100:inst23|clockout (Fall) (setup and hold)
+    Warning: From div100:inst23|clockout (Fall) to div100:inst23|clockout (Fall) (setup and hold)
+    Warning: From div100:inst22|clockout (Rise) to div50:inst21|clockout (Rise) (setup and hold)
+    Warning: From div100:inst22|clockout (Fall) to div50:inst21|clockout (Rise) (setup and hold)
+    Warning: From div50:inst21|clockout (Rise) to div50:inst21|clockout (Rise) (setup and hold)
+    Warning: From div50:inst21|clockout (Fall) to div50:inst21|clockout (Rise) (setup and hold)
+    Warning: From clk (Rise) to div50:inst21|clockout (Rise) (setup and hold)
+    Warning: From div50:inst21|clockout (Rise) to div50:inst21|clockout (Fall) (setup and hold)
+    Warning: From div50:inst21|clockout (Fall) to div50:inst21|clockout (Fall) (setup and hold)
+    Warning: From clk (Rise) to div50:inst21|clockout (Fall) (setup and hold)
+    Warning: From div50:inst21|clockout (Rise) to clk (Rise) (setup and hold)
+    Warning: From div50:inst21|clockout (Fall) to clk (Rise) (setup and hold)
+    Warning: From clk (Rise) to clk (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Rise) to keyboard:inst3|keyf (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Rise) to keyboard:inst3|keyf (Rise) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Fall) to keyboard:inst3|keyf (Rise) (setup and hold)
+    Warning: From div100:inst23|clockout (Rise) to keyboard:inst3|keyf (Fall) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Rise) to keyboard:inst3|keyf (Fall) (setup and hold)
+    Warning: From keyboard:inst3|keyf (Fall) to keyboard:inst3|keyf (Fall) (setup and hold)
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -2.110
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -2.110       -70.972 div100:inst22|clockout 
+    Info:    -0.373        -3.636 div50:inst21|clockout 
+    Info:    -0.358        -3.080 clk 
+    Info:     0.251         0.000 div100:inst23|clockout 
+    Info:     0.488         0.000 keyboard:inst3|keyf 
+Info: Worst-case hold slack is -1.792
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -1.792       -21.902 div100:inst22|clockout 
+    Info:    -1.709        -1.709 div100:inst23|clockout 
+    Info:    -1.405        -1.405 clk 
+    Info:    -1.349        -1.349 div50:inst21|clockout 
+    Info:     0.179         0.000 keyboard:inst3|keyf 
+Info: Worst-case recovery slack is -0.090
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -0.090        -0.102 div100:inst22|clockout 
+    Info:    -0.018        -0.036 keyboard:inst3|keyf 
+Info: Worst-case removal slack is 0.486
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     0.486         0.000 div100:inst22|clockout 
+    Info:     0.644         0.000 keyboard:inst3|keyf 
+Critical Warning: Found minimum pulse width or period violations. See Report Minimum Pulse Width for details.
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 115 warnings
+    Info: Peak virtual memory: 295 megabytes
+    Info: Processing ended: Wed Dec 11 18:10:27 2019
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:07
+
+

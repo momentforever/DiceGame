@@ -1,0 +1,618 @@
+|dicegame
+player1 <= inst25.DB_MAX_OUTPUT_PORT_TYPE
+clk => div50:inst21.clockin
+rst => keyboard:inst10.button
+in2 => keyboard:inst14.button
+count => keyboard:inst3.button
+in1 => keyboard:inst.button
+player2 <= inst24.DB_MAX_OUTPUT_PORT_TYPE
+choose[0] <= pianxuan:inst20.n[0]
+choose[1] <= pianxuan:inst20.n[1]
+choose[2] <= pianxuan:inst20.n[2]
+choose[3] <= pianxuan:inst20.n[3]
+choose[4] <= pianxuan:inst20.n[4]
+led[0] <= pianxuan:inst20.e[0]
+led[1] <= pianxuan:inst20.e[1]
+led[2] <= pianxuan:inst20.e[2]
+led[3] <= pianxuan:inst20.e[3]
+led[4] <= pianxuan:inst20.e[4]
+led[5] <= pianxuan:inst20.e[5]
+led[6] <= pianxuan:inst20.e[6]
+led[7] <= pianxuan:inst20.e[7]
+
+
+|dicegame|rules:inst34
+win1 <= win1~reg0.DB_MAX_OUTPUT_PORT_TYPE
+win2 <= win2~reg0.DB_MAX_OUTPUT_PORT_TYPE
+en_out_count <= en_out_count~reg0.DB_MAX_OUTPUT_PORT_TYPE
+en_out_radom <= en_out_radom~reg0.DB_MAX_OUTPUT_PORT_TYPE
+turn[0] => Equal0.IN0
+turn[0] => Equal4.IN29
+turn[1] => Equal0.IN29
+turn[1] => Equal4.IN0
+turn[2] => Equal0.IN30
+turn[2] => Equal4.IN30
+turn[3] => Equal0.IN31
+turn[3] => Equal4.IN31
+rst => en_out_radom~1.OUTPUTSELECT
+rst => e~19.OUTPUTSELECT
+rst => e~18.OUTPUTSELECT
+rst => e~17.OUTPUTSELECT
+rst => e~16.OUTPUTSELECT
+rst => e~15.OUTPUTSELECT
+rst => win2~1.OUTPUTSELECT
+rst => win1~0.OUTPUTSELECT
+rst => a~33.OUTPUTSELECT
+rst => a~32.OUTPUTSELECT
+rst => a~31.OUTPUTSELECT
+rst => a~30.OUTPUTSELECT
+rst => a~29.OUTPUTSELECT
+rst => a~28.OUTPUTSELECT
+rst => a~27.OUTPUTSELECT
+rst => en_out_count~0.OUTPUTSELECT
+num[0] => Equal5.IN4
+num[0] => e~4.DATAA
+num[0] => Equal1.IN27
+num[0] => Equal2.IN0
+num[0] => Equal3.IN0
+num[1] => Equal5.IN3
+num[1] => e~3.DATAA
+num[1] => Equal1.IN28
+num[1] => Equal2.IN1
+num[1] => Equal3.IN29
+num[2] => Equal5.IN2
+num[2] => e~2.DATAA
+num[2] => Equal1.IN29
+num[2] => Equal2.IN30
+num[2] => Equal3.IN1
+num[3] => Equal5.IN1
+num[3] => e~1.DATAA
+num[3] => Equal1.IN30
+num[3] => Equal2.IN2
+num[3] => Equal3.IN30
+num[4] => Equal5.IN0
+num[4] => e~0.DATAA
+num[4] => Equal1.IN31
+num[4] => Equal2.IN31
+num[4] => Equal3.IN31
+clk => en_out_count~reg0.CLK
+clk => win1~reg0.CLK
+clk => win2~reg0.CLK
+clk => e[4].CLK
+clk => e[3].CLK
+clk => e[2].CLK
+clk => e[1].CLK
+clk => e[0].CLK
+clk => en_out_radom~reg0.CLK
+clk => a~34.IN1
+
+
+|dicegame|keyboard:inst10
+clk => num[3].CLK
+clk => num[2].CLK
+clk => num[1].CLK
+clk => num[0].CLK
+clk => keyf~reg0.CLK
+button => keyf~1.OUTPUTSELECT
+button => num~7.OUTPUTSELECT
+button => num~6.OUTPUTSELECT
+button => num~5.OUTPUTSELECT
+button => num~4.OUTPUTSELECT
+button => keyf~2.OUTPUTSELECT
+button => num~11.OUTPUTSELECT
+button => num~10.OUTPUTSELECT
+button => num~9.OUTPUTSELECT
+button => num~8.OUTPUTSELECT
+keyf <= keyf~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|dicegame|div100:inst23
+clockin => count[15].CLK
+clockin => count[14].CLK
+clockin => count[13].CLK
+clockin => count[12].CLK
+clockin => count[11].CLK
+clockin => count[10].CLK
+clockin => count[9].CLK
+clockin => count[8].CLK
+clockin => count[7].CLK
+clockin => count[6].CLK
+clockin => count[5].CLK
+clockin => count[4].CLK
+clockin => count[3].CLK
+clockin => count[2].CLK
+clockin => count[1].CLK
+clockin => count[0].CLK
+clockin => clockout~reg0.CLK
+clockout <= clockout~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|dicegame|div100:inst22
+clockin => count[15].CLK
+clockin => count[14].CLK
+clockin => count[13].CLK
+clockin => count[12].CLK
+clockin => count[11].CLK
+clockin => count[10].CLK
+clockin => count[9].CLK
+clockin => count[8].CLK
+clockin => count[7].CLK
+clockin => count[6].CLK
+clockin => count[5].CLK
+clockin => count[4].CLK
+clockin => count[3].CLK
+clockin => count[2].CLK
+clockin => count[1].CLK
+clockin => count[0].CLK
+clockin => clockout~reg0.CLK
+clockout <= clockout~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|dicegame|div50:inst21
+clockin => count[15].CLK
+clockin => count[14].CLK
+clockin => count[13].CLK
+clockin => count[12].CLK
+clockin => count[11].CLK
+clockin => count[10].CLK
+clockin => count[9].CLK
+clockin => count[8].CLK
+clockin => count[7].CLK
+clockin => count[6].CLK
+clockin => count[5].CLK
+clockin => count[4].CLK
+clockin => count[3].CLK
+clockin => count[2].CLK
+clockin => count[1].CLK
+clockin => count[0].CLK
+clockin => clockout~reg0.CLK
+clockout <= clockout~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|dicegame|add:inst8
+num1[0] => Add0.IN4
+num1[0] => Equal0.IN28
+num1[1] => Add0.IN3
+num1[1] => Equal0.IN29
+num1[2] => Add0.IN2
+num1[2] => Equal0.IN30
+num1[3] => Add0.IN1
+num1[3] => Equal0.IN31
+num2[0] => Add0.IN8
+num2[0] => Equal1.IN28
+num2[1] => Add0.IN7
+num2[1] => Equal1.IN29
+num2[2] => Add0.IN6
+num2[2] => Equal1.IN30
+num2[3] => Add0.IN5
+num2[3] => Equal1.IN31
+add_num[0] <= add_num~4.DB_MAX_OUTPUT_PORT_TYPE
+add_num[1] <= add_num~3.DB_MAX_OUTPUT_PORT_TYPE
+add_num[2] <= add_num~2.DB_MAX_OUTPUT_PORT_TYPE
+add_num[3] <= add_num~1.DB_MAX_OUTPUT_PORT_TYPE
+add_num[4] <= add_num~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|dicegame|radom:inst5
+clk => num1[3]~reg0.CLK
+clk => num1[2]~reg0.CLK
+clk => num1[1]~reg0.CLK
+clk => num1[0]~reg0.CLK
+clk => num2[3]~reg0.CLK
+clk => num2[2]~reg0.CLK
+clk => num2[1]~reg0.CLK
+clk => num2[0]~reg0.CLK
+clk => save_num[3].CLK
+clk => save_num[2].CLK
+clk => save_num[1].CLK
+clk => save_num[0].CLK
+clk => state~0.IN1
+keyf => Selector2.IN0
+keyf => num1~7.OUTPUTSELECT
+keyf => num1~6.OUTPUTSELECT
+keyf => num1~5.OUTPUTSELECT
+keyf => num1~4.OUTPUTSELECT
+keyf => Selector1.IN1
+keyf => Selector0.IN2
+keyf => num2~7.OUTPUTSELECT
+keyf => num2~6.OUTPUTSELECT
+keyf => num2~5.OUTPUTSELECT
+keyf => num2~4.OUTPUTSELECT
+num1[0] <= num1[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num1[1] <= num1[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num1[2] <= num1[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num1[3] <= num1[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num2[0] <= num2[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num2[1] <= num2[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num2[2] <= num2[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num2[3] <= num2[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clr => Selector1.IN2
+clr => num2~3.OUTPUTSELECT
+clr => num2~2.OUTPUTSELECT
+clr => num2~1.OUTPUTSELECT
+clr => num2~0.OUTPUTSELECT
+clr => num1~3.OUTPUTSELECT
+clr => num1~2.OUTPUTSELECT
+clr => num1~1.OUTPUTSELECT
+clr => num1~0.OUTPUTSELECT
+clr => Selector0.IN1
+rst => num1[3]~reg0.ACLR
+rst => num1[2]~reg0.ACLR
+rst => num1[1]~reg0.ACLR
+rst => num1[0]~reg0.ACLR
+rst => num2[3]~reg0.ACLR
+rst => num2[2]~reg0.ACLR
+rst => num2[1]~reg0.ACLR
+rst => num2[0]~reg0.ACLR
+rst => save_num[3].ACLR
+rst => save_num[2].ACLR
+rst => save_num[1].ACLR
+rst => save_num[0].ACLR
+rst => state~1.IN1
+
+
+|dicegame|keyboard:inst14
+clk => num[3].CLK
+clk => num[2].CLK
+clk => num[1].CLK
+clk => num[0].CLK
+clk => keyf~reg0.CLK
+button => keyf~1.OUTPUTSELECT
+button => num~7.OUTPUTSELECT
+button => num~6.OUTPUTSELECT
+button => num~5.OUTPUTSELECT
+button => num~4.OUTPUTSELECT
+button => keyf~2.OUTPUTSELECT
+button => num~11.OUTPUTSELECT
+button => num~10.OUTPUTSELECT
+button => num~9.OUTPUTSELECT
+button => num~8.OUTPUTSELECT
+keyf <= keyf~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|dicegame|keyboard:inst3
+clk => num[3].CLK
+clk => num[2].CLK
+clk => num[1].CLK
+clk => num[0].CLK
+clk => keyf~reg0.CLK
+button => keyf~1.OUTPUTSELECT
+button => num~7.OUTPUTSELECT
+button => num~6.OUTPUTSELECT
+button => num~5.OUTPUTSELECT
+button => num~4.OUTPUTSELECT
+button => keyf~2.OUTPUTSELECT
+button => num~11.OUTPUTSELECT
+button => num~10.OUTPUTSELECT
+button => num~9.OUTPUTSELECT
+button => num~8.OUTPUTSELECT
+keyf <= keyf~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|dicegame|count_turn:inst16
+rst => count[3]~reg0.ACLR
+rst => count[2]~reg0.ACLR
+rst => count[1]~reg0.ACLR
+rst => count[0]~reg0.ACLR
+keyf => count[3]~reg0.CLK
+keyf => count[2]~reg0.CLK
+keyf => count[1]~reg0.CLK
+keyf => count[0]~reg0.CLK
+count[0] <= count[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[1] <= count[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[2] <= count[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[3] <= count[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|dicegame|rules:inst35
+win1 <= win1~reg0.DB_MAX_OUTPUT_PORT_TYPE
+win2 <= win2~reg0.DB_MAX_OUTPUT_PORT_TYPE
+en_out_count <= en_out_count~reg0.DB_MAX_OUTPUT_PORT_TYPE
+en_out_radom <= en_out_radom~reg0.DB_MAX_OUTPUT_PORT_TYPE
+turn[0] => Equal0.IN0
+turn[0] => Equal4.IN29
+turn[1] => Equal0.IN29
+turn[1] => Equal4.IN0
+turn[2] => Equal0.IN30
+turn[2] => Equal4.IN30
+turn[3] => Equal0.IN31
+turn[3] => Equal4.IN31
+rst => en_out_radom~1.OUTPUTSELECT
+rst => e~19.OUTPUTSELECT
+rst => e~18.OUTPUTSELECT
+rst => e~17.OUTPUTSELECT
+rst => e~16.OUTPUTSELECT
+rst => e~15.OUTPUTSELECT
+rst => win2~1.OUTPUTSELECT
+rst => win1~0.OUTPUTSELECT
+rst => a~33.OUTPUTSELECT
+rst => a~32.OUTPUTSELECT
+rst => a~31.OUTPUTSELECT
+rst => a~30.OUTPUTSELECT
+rst => a~29.OUTPUTSELECT
+rst => a~28.OUTPUTSELECT
+rst => a~27.OUTPUTSELECT
+rst => en_out_count~0.OUTPUTSELECT
+num[0] => Equal5.IN4
+num[0] => e~4.DATAA
+num[0] => Equal1.IN27
+num[0] => Equal2.IN0
+num[0] => Equal3.IN0
+num[1] => Equal5.IN3
+num[1] => e~3.DATAA
+num[1] => Equal1.IN28
+num[1] => Equal2.IN1
+num[1] => Equal3.IN29
+num[2] => Equal5.IN2
+num[2] => e~2.DATAA
+num[2] => Equal1.IN29
+num[2] => Equal2.IN30
+num[2] => Equal3.IN1
+num[3] => Equal5.IN1
+num[3] => e~1.DATAA
+num[3] => Equal1.IN30
+num[3] => Equal2.IN2
+num[3] => Equal3.IN30
+num[4] => Equal5.IN0
+num[4] => e~0.DATAA
+num[4] => Equal1.IN31
+num[4] => Equal2.IN31
+num[4] => Equal3.IN31
+clk => en_out_count~reg0.CLK
+clk => win1~reg0.CLK
+clk => win2~reg0.CLK
+clk => e[4].CLK
+clk => e[3].CLK
+clk => e[2].CLK
+clk => e[1].CLK
+clk => e[0].CLK
+clk => en_out_radom~reg0.CLK
+clk => a~34.IN1
+
+
+|dicegame|add:inst7
+num1[0] => Add0.IN4
+num1[0] => Equal0.IN28
+num1[1] => Add0.IN3
+num1[1] => Equal0.IN29
+num1[2] => Add0.IN2
+num1[2] => Equal0.IN30
+num1[3] => Add0.IN1
+num1[3] => Equal0.IN31
+num2[0] => Add0.IN8
+num2[0] => Equal1.IN28
+num2[1] => Add0.IN7
+num2[1] => Equal1.IN29
+num2[2] => Add0.IN6
+num2[2] => Equal1.IN30
+num2[3] => Add0.IN5
+num2[3] => Equal1.IN31
+add_num[0] <= add_num~4.DB_MAX_OUTPUT_PORT_TYPE
+add_num[1] <= add_num~3.DB_MAX_OUTPUT_PORT_TYPE
+add_num[2] <= add_num~2.DB_MAX_OUTPUT_PORT_TYPE
+add_num[3] <= add_num~1.DB_MAX_OUTPUT_PORT_TYPE
+add_num[4] <= add_num~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|dicegame|radom:inst2
+clk => num1[3]~reg0.CLK
+clk => num1[2]~reg0.CLK
+clk => num1[1]~reg0.CLK
+clk => num1[0]~reg0.CLK
+clk => num2[3]~reg0.CLK
+clk => num2[2]~reg0.CLK
+clk => num2[1]~reg0.CLK
+clk => num2[0]~reg0.CLK
+clk => save_num[3].CLK
+clk => save_num[2].CLK
+clk => save_num[1].CLK
+clk => save_num[0].CLK
+clk => state~0.IN1
+keyf => Selector2.IN0
+keyf => num1~7.OUTPUTSELECT
+keyf => num1~6.OUTPUTSELECT
+keyf => num1~5.OUTPUTSELECT
+keyf => num1~4.OUTPUTSELECT
+keyf => Selector1.IN1
+keyf => Selector0.IN2
+keyf => num2~7.OUTPUTSELECT
+keyf => num2~6.OUTPUTSELECT
+keyf => num2~5.OUTPUTSELECT
+keyf => num2~4.OUTPUTSELECT
+num1[0] <= num1[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num1[1] <= num1[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num1[2] <= num1[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num1[3] <= num1[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num2[0] <= num2[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num2[1] <= num2[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num2[2] <= num2[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num2[3] <= num2[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clr => Selector1.IN2
+clr => num2~3.OUTPUTSELECT
+clr => num2~2.OUTPUTSELECT
+clr => num2~1.OUTPUTSELECT
+clr => num2~0.OUTPUTSELECT
+clr => num1~3.OUTPUTSELECT
+clr => num1~2.OUTPUTSELECT
+clr => num1~1.OUTPUTSELECT
+clr => num1~0.OUTPUTSELECT
+clr => Selector0.IN1
+rst => num1[3]~reg0.ACLR
+rst => num1[2]~reg0.ACLR
+rst => num1[1]~reg0.ACLR
+rst => num1[0]~reg0.ACLR
+rst => num2[3]~reg0.ACLR
+rst => num2[2]~reg0.ACLR
+rst => num2[1]~reg0.ACLR
+rst => num2[0]~reg0.ACLR
+rst => save_num[3].ACLR
+rst => save_num[2].ACLR
+rst => save_num[1].ACLR
+rst => save_num[0].ACLR
+rst => state~1.IN1
+
+
+|dicegame|keyboard:inst
+clk => num[3].CLK
+clk => num[2].CLK
+clk => num[1].CLK
+clk => num[0].CLK
+clk => keyf~reg0.CLK
+button => keyf~1.OUTPUTSELECT
+button => num~7.OUTPUTSELECT
+button => num~6.OUTPUTSELECT
+button => num~5.OUTPUTSELECT
+button => num~4.OUTPUTSELECT
+button => keyf~2.OUTPUTSELECT
+button => num~11.OUTPUTSELECT
+button => num~10.OUTPUTSELECT
+button => num~9.OUTPUTSELECT
+button => num~8.OUTPUTSELECT
+keyf <= keyf~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|dicegame|pianxuan:inst20
+a[0] => Selector7.IN0
+a[1] => Selector6.IN0
+a[2] => Selector5.IN0
+a[3] => Selector4.IN0
+a[4] => Selector3.IN0
+a[5] => Selector2.IN0
+a[6] => Selector1.IN0
+a[7] => Selector0.IN0
+b[0] => Selector7.IN1
+b[1] => Selector6.IN1
+b[2] => Selector5.IN1
+b[3] => Selector4.IN1
+b[4] => Selector3.IN1
+b[5] => Selector2.IN1
+b[6] => Selector1.IN1
+b[7] => Selector0.IN1
+c[0] => Selector7.IN2
+c[1] => Selector6.IN2
+c[2] => Selector5.IN2
+c[3] => Selector4.IN2
+c[4] => Selector3.IN2
+c[5] => Selector2.IN2
+c[6] => Selector1.IN2
+c[7] => Selector0.IN2
+d[0] => Selector7.IN3
+d[1] => Selector6.IN3
+d[2] => Selector5.IN3
+d[3] => Selector4.IN3
+d[4] => Selector3.IN3
+d[5] => Selector2.IN3
+d[6] => Selector1.IN3
+d[7] => Selector0.IN3
+g[0] => Selector7.IN4
+g[1] => Selector6.IN4
+g[2] => Selector5.IN4
+g[3] => Selector4.IN4
+g[4] => Selector3.IN4
+g[5] => Selector2.IN4
+g[6] => Selector1.IN4
+g[7] => Selector0.IN4
+e[0] <= e[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+e[1] <= e[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+e[2] <= e[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+e[3] <= e[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+e[4] <= e[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+e[5] <= e[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+e[6] <= e[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+e[7] <= e[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+n[0] <= n[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+n[1] <= n[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+n[2] <= n[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+n[3] <= n[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+n[4] <= n[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk => e[7]~reg0.CLK
+clk => e[6]~reg0.CLK
+clk => e[5]~reg0.CLK
+clk => e[4]~reg0.CLK
+clk => e[3]~reg0.CLK
+clk => e[2]~reg0.CLK
+clk => e[1]~reg0.CLK
+clk => e[0]~reg0.CLK
+clk => n[4]~reg0.CLK
+clk => n[3]~reg0.CLK
+clk => n[2]~reg0.CLK
+clk => n[1]~reg0.CLK
+clk => n[0]~reg0.CLK
+clk => f~0.IN1
+
+
+|dicegame|decoder:inst1
+data_in[0] => Decoder0.IN3
+data_in[1] => Decoder0.IN2
+data_in[2] => Decoder0.IN1
+data_in[3] => Decoder0.IN0
+data_out[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+data_out[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+data_out[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+data_out[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[7] <= <GND>
+
+
+|dicegame|decoder:inst11
+data_in[0] => Decoder0.IN3
+data_in[1] => Decoder0.IN2
+data_in[2] => Decoder0.IN1
+data_in[3] => Decoder0.IN0
+data_out[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+data_out[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+data_out[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+data_out[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[7] <= <GND>
+
+
+|dicegame|decoder:inst12
+data_in[0] => Decoder0.IN3
+data_in[1] => Decoder0.IN2
+data_in[2] => Decoder0.IN1
+data_in[3] => Decoder0.IN0
+data_out[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+data_out[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+data_out[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+data_out[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[7] <= <GND>
+
+
+|dicegame|decoder:inst13
+data_in[0] => Decoder0.IN3
+data_in[1] => Decoder0.IN2
+data_in[2] => Decoder0.IN1
+data_in[3] => Decoder0.IN0
+data_out[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+data_out[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+data_out[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+data_out[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[7] <= <GND>
+
+
+|dicegame|decoder:inst15
+data_in[0] => Decoder0.IN3
+data_in[1] => Decoder0.IN2
+data_in[2] => Decoder0.IN1
+data_in[3] => Decoder0.IN0
+data_out[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+data_out[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+data_out[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+data_out[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[7] <= <GND>
+
+

@@ -1,0 +1,40 @@
+module turn_control(clk,en,in_wave,out_wave);
+input clk;
+input en;
+input in_wave;
+output out_wave;
+reg out_wave;
+
+reg [2:0] turn;
+reg [2:0] state;
+
+always@(posedge clk)begin
+	if(en==1)turn<=0;
+
+	if(in_wave==1&&state==0)begin
+		state<=2'b01;
+		turn<=1;
+	end
+	else if(state==1&&in_wave!=0)begin
+		state<=2'b01;
+		turn<=1;
+	end
+	else if(state==2'b01&&in_wave==0)begin
+		state<=2'b10;
+		turn<=1;
+	end
+	else if(state==2'b10)begin
+		state<=0;
+		turn<=2'b10;
+	end
+	else begin
+		state<=0;
+		turn<=0;
+	end
+
+	
+	if(turn==1)out_wave<=in_wave;
+	else out_wave<=0;
+end
+
+endmodule
